@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Atlas</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="cosmos-scene" aria-hidden="true">
+        <span class="cosmos-sun"></span>
+        <span class="cosmos-orbit cosmos-orbit--one"></span>
+        <span class="cosmos-orbit cosmos-orbit--two"></span>
+      </div>
+      <nav class="topbar" aria-label="主导航">
+        <a class="brand" href="#home">
+          <span class="brand__mark">N</span>
+          <span>AI Atlas</span>
+        </a>
+        <div class="topbar__actions">
+          <button class="button button--soft" id="langButton" type="button" aria-label="Switch language">EN</button>
+          <button class="icon-button" id="themeButton" type="button" aria-label="切换主题" title="切换主题">
+            <span aria-hidden="true">◐</span>
+          </button>
+          <button class="button button--light" id="exportButton" type="button" data-i18n="export">Export</button>
+        </div>
+      </nav>
+      <section class="hero__content" id="home">
+        <p class="eyebrow" data-i18n="heroEyebrow">AI Daily · Chronicle · Papers</p>
+        <h1 data-i18n="heroTitle">AI Daily</h1>
+        <div class="hero__metrics" aria-label="资料库概览">
+          <div>
+            <strong id="metricToday">0</strong>
+            <span data-i18n="metricToday">Today</span>
+          </div>
+          <div>
+            <strong id="metricHigh">0</strong>
+            <span data-i18n="metricHigh">High</span>
+          </div>
+          <div>
+            <strong id="metricSources">0</strong>
+            <span data-i18n="metricSources">Sources</span>
+          </div>
+          <div>
+            <strong id="metricDays">0</strong>
+            <span data-i18n="metricDays">Days</span>
+          </div>
+        </div>
+        <div class="launch-grid" aria-label="栏目入口">
+          <button class="launch-card is-active" type="button" data-view-target="daily">
+            <span>AI Daily</span>
+            <strong>Daily</strong>
+            <small data-i18n="cardDaily">Papers, news, notes</small>
+            <i class="visual visual--daily" aria-hidden="true"></i>
+          </button>
+          <button class="launch-card" type="button" data-view-target="chronicle">
+            <span>Chronicle</span>
+            <strong>Events</strong>
+            <small data-i18n="cardChronicle">History, impact, career</small>
+            <i class="visual visual--timeline" aria-hidden="true"></i>
+          </button>
+          <button class="launch-card" type="button" data-view-target="learn">
+            <span>Papers</span>
+            <strong>Learn</strong>
+            <small data-i18n="cardLearn">First reading path</small>
+            <i class="visual visual--learn" aria-hidden="true"></i>
+          </button>
+          <button class="launch-card" type="button" data-view-target="notebook">
+            <span>Notebook</span>
+            <strong>Notes</strong>
+            <small data-i18n="cardNotes">Saved reads and sources</small>
+            <i class="visual visual--notes" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="section-tabs" role="tablist" aria-label="栏目导航">
+          <button class="section-tab is-active" type="button" data-view-target="daily">AI Daily</button>
+          <button class="section-tab" type="button" data-view-target="chronicle">Events</button>
+          <button class="section-tab" type="button" data-view-target="learn">Papers</button>
+          <button class="section-tab" type="button" data-view-target="notebook">Notes</button>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="workspace page-section" id="brief" data-page="daily">
+        <div class="panel panel--primary">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Daily Brief</p>
+              <h2 data-i18n="briefTitle">Brief</h2>
+            </div>
+            <input class="date-input" id="briefDate" type="date" />
+          </div>
+          <div id="briefOutput" class="brief-output"></div>
+        </div>
+
+        <aside class="side-stack">
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Archive</p>
+                <h2 data-i18n="archiveTitle">Archive</h2>
+              </div>
+              <div class="date-tools" aria-label="切换日期">
+                <button class="icon-button" id="prevDateButton" type="button" aria-label="前一天" title="前一天">‹</button>
+                <button class="icon-button" id="todayButton" type="button" aria-label="今天" title="今天">◎</button>
+                <button class="icon-button" id="nextDateButton" type="button" aria-label="后一天" title="后一天">›</button>
+              </div>
+            </div>
+            <div class="archive-list" id="archiveList"></div>
+          </section>
+
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Focus</p>
+                <h2 data-i18n="focusTitle">Focus</h2>
+              </div>
+            </div>
+            <div class="focus-list" id="focusList"></div>
+          </section>
+        </aside>
+      </section>
+
+      <section class="panel keyword-band page-section" data-page="notebook">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">NeuroAI Focus</p>
+            <h2 data-i18n="keywordsTitle">Keywords</h2>
+          </div>
+          <button class="button button--soft" id="copyKeywordsButton" type="button" data-i18n="copyKeywords">Copy</button>
+        </div>
+        <div class="keyword-list" id="keywordList"></div>
+      </section>
+
+      <section class="entry-band page-section" data-page="daily">
+        <form class="entry-form" id="articleForm">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Inbox</p>
+              <h2 data-i18n="inboxTitle">Add</h2>
+            </div>
+            <button class="button" type="submit" data-i18n="addArticle">Add</button>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              <span>标题</span>
+              <input id="titleInput" name="title" required placeholder="例如：Closed-loop BCI with foundation models" />
+            </label>
+            <label>
+              <span>原文链接</span>
+              <input id="urlInput" name="url" type="url" placeholder="https://..." />
+            </label>
+            <label>
+              <span>来源</span>
+              <input id="sourceInput" name="source" placeholder="Nature, arXiv, The Decoder..." />
+            </label>
+            <label>
+              <span>记录日期</span>
+              <input id="dateInput" name="date" type="date" />
+            </label>
+            <label>
+              <span>发表日期</span>
+              <input id="publishedInput" name="published" type="date" />
+            </label>
+            <label>
+              <span>DOI / arXiv / PMID</span>
+              <input id="identifierInput" name="identifier" placeholder="10.xxxx / 2401.00000 / PMID" />
+            </label>
+            <label>
+              <span>方向</span>
+              <select id="topicInput" name="topic">
+                <option>计算神经科学</option>
+                <option>神经信号动力学</option>
+                <option>脑能量学</option>
+                <option>神经信息处理</option>
+                <option>神经计算模型</option>
+                <option>脉冲神经网络</option>
+                <option>神经形态计算</option>
+                <option>类脑智能</option>
+                <option>仿生智能</option>
+                <option>具身智能</option>
+                <option>机器人学习</option>
+                <option>神经信号解码</option>
+                <option>脑机接口</option>
+                <option>AI 工具动态</option>
+                <option>脑疾病机制</option>
+              </select>
+            </label>
+            <label>
+              <span>优先级</span>
+              <select id="priorityInput" name="priority">
+                <option value="high">高</option>
+                <option value="medium" selected>中</option>
+                <option value="low">低</option>
+              </select>
+            </label>
+            <label>
+              <span>证据类型</span>
+              <select id="evidenceInput" name="evidence">
+                <option value="paper" selected>论文</option>
+                <option value="review">综述</option>
+                <option value="preprint">预印本</option>
+                <option value="trial">临床试验</option>
+                <option value="industry">产业动态</option>
+                <option value="policy">监管政策</option>
+                <option value="media">媒体报道</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="wide-field">
+            <span>摘要或笔记</span>
+            <textarea id="notesInput" name="notes" rows="4" placeholder="粘贴摘要、新闻要点、你自己的判断，或待验证问题。"></textarea>
+          </label>
+          <div class="insight-grid">
+            <label>
+              <span>关键词</span>
+              <input id="keywordsInput" name="keywords" placeholder="神经计算；脑能量；脉冲神经网络" />
+            </label>
+            <label>
+              <span>重要结果</span>
+              <textarea id="resultInput" name="result" rows="3" placeholder="这篇文章最重要的发现、方法结果或实验证据。"></textarea>
+            </label>
+            <label>
+              <span>意义</span>
+              <textarea id="significanceInput" name="significance" rows="3" placeholder="为什么值得读；它和 NeuroAI / BCI / brain-inspired AI 有什么关系。"></textarea>
+            </label>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel column-band page-section" data-page="chronicle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">AI Chronicle</p>
+            <h2>Events</h2>
+          </div>
+          <div class="segmented compact-segmented" role="tablist" aria-label="大事记筛选">
+            <button type="button" class="segment is-active" data-timeline-filter="all">All</button>
+            <button type="button" class="segment" data-timeline-filter="recent">90d</button>
+            <button type="button" class="segment" data-timeline-filter="important">Key</button>
+            <button type="button" class="segment" data-timeline-filter="china">CN</button>
+            <button type="button" class="segment" data-timeline-filter="us">US</button>
+          </div>
+        </div>
+        <div class="timeline-shell">
+          <aside class="timeline-nav" id="timelineNav" aria-label="AI 大事时间线"></aside>
+          <article class="timeline-detail" id="timelineDetail"></article>
+        </div>
+      </section>
+
+      <section class="content-grid page-section is-active" data-page="daily notebook">
+        <div class="panel page-section-inner" data-page-inner="daily">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Library</p>
+              <h2>Library</h2>
+            </div>
+            <div class="segmented" role="tablist" aria-label="文章筛选">
+              <button type="button" class="segment is-active" data-filter="all">All</button>
+              <button type="button" class="segment" data-filter="high">High</button>
+              <button type="button" class="segment" data-filter="today">Today</button>
+            </div>
+          </div>
+          <div class="daily-split">
+            <section class="daily-column">
+              <div class="daily-column__head">
+                <span>Papers</span>
+                <small>Academic first</small>
+              </div>
+              <div class="article-list" id="paperList"></div>
+            </section>
+            <section class="daily-column">
+              <div class="daily-column__head">
+                <span>News</span>
+                <small>Industry / policy</small>
+              </div>
+              <div class="article-list" id="newsList"></div>
+            </section>
+          </div>
+        </div>
+
+        <div class="side-stack">
+          <section class="panel ai-pulse-panel page-section-inner" data-page-inner="daily">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">AI / X Pulse</p>
+                <h2>Pulse</h2>
+              </div>
+              <a class="source-link source-link--compact" href="https://x.com/search?q=%28OpenAI%20Codex%20OR%20AI%20agents%20OR%20rate%20limits%29&src=typed_query&f=live" target="_blank" rel="noreferrer">X Search</a>
+            </div>
+            <div class="ai-pulse-list" id="aiPulseList"></div>
+          </section>
+
+          <section class="panel notebook-panel page-section-inner" data-page-inner="notebook">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Notebook</p>
+                <h2>Notes</h2>
+              </div>
+              <button class="icon-button" id="saveNotesButton" type="button" aria-label="保存笔记" title="保存笔记">
+                <span aria-hidden="true">✓</span>
+              </button>
+            </div>
+            <label class="wide-field compact-field">
+              <span>Long notes</span>
+              <textarea id="notesBox" class="notes-box" rows="5" placeholder="记录读 NeuroAI、BCI、brain-inspired AI 时反复出现的模型、方法、问题和判断。"></textarea>
+            </label>
+            <div class="mini-section">
+              <div class="source-group__title">
+                <span>一键经典收藏</span>
+                <span id="classicCount">0 个</span>
+              </div>
+              <div class="classic-list" id="classicList"></div>
+            </div>
+            <div class="mini-section">
+              <div class="source-group__title">
+                <span>已收藏</span>
+                <span id="favoriteCount">0 个</span>
+              </div>
+              <div class="favorite-list" id="favoriteList"></div>
+            </div>
+          </section>
+
+          <section class="panel page-section-inner" data-page-inner="notebook">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Sources</p>
+                <h2>Sources</h2>
+              </div>
+            </div>
+            <div class="source-list" id="sourceList"></div>
+          </section>
+
+          <section class="panel page-section-inner" data-page-inner="daily">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Prompt</p>
+                <h2>Prompt</h2>
+              </div>
+              <button class="icon-button" id="copyPromptButton" type="button" aria-label="复制提示词" title="复制提示词">
+                <span aria-hidden="true">⧉</span>
+              </button>
+            </div>
+            <textarea id="promptBox" class="prompt-box" readonly></textarea>
+          </section>
+        </div>
+      </section>
+
+      <section class="panel learn-band page-section" data-page="learn">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Starter Kit</p>
+            <h2>Papers</h2>
+          </div>
+        </div>
+        <div class="paper-path" id="paperPath"></div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
