@@ -696,7 +696,7 @@ const chronicleSections = [
 const keywordGroups = [
   {
     category: "基础理论",
-    keywords: ["计算神经科学", "类脑智能", "智能复杂体系", "神经计算", "神经信息处理", "神经动力学"]
+    keywords: ["计算神经科学", "复杂系统", "类脑智能", "智能复杂体系", "神经计算", "神经信息处理", "神经动力学"]
   },
   {
     category: "神经信号与能量",
@@ -769,20 +769,52 @@ const classicReads = [
 
 const focusAreas = [
   {
-    title: "神经信号动力学",
-    text: "优先看神经信号如何传播、同步、振荡，以及这些动力学如何支撑计算。"
+    id: "bci",
+    title: "脑机接口",
+    titleEn: "BCI",
+    text: "连接大脑与外部设备，重点关注神经信号采集、解码、闭环反馈和长期稳定性。",
+    textEn: "Connects the brain to external devices through neural sensing, decoding, closed-loop feedback and long-term stability.",
+    terms: ["脑机接口", "bci", "neural decoding", "eeg", "speech bci", "侵入式"]
   },
   {
-    title: "脑能量与代谢约束",
-    text: "关注能量消耗、基础代谢依赖和大脑如何实现低功耗高效信息处理。"
+    id: "embodied",
+    title: "具身智能",
+    titleEn: "Embodied AI",
+    text: "研究智能体如何通过身体、环境和行动学习，覆盖机器人学习、世界模型与视觉-语言-动作模型。",
+    textEn: "Studies how agents learn through bodies, environments and action, including robot learning, world models and VLA models.",
+    terms: ["具身智能", "embodied ai", "机器人学习", "robot learning", "world model", "vision-language-action", "vla"]
   },
   {
-    title: "多尺度神经计算模型",
-    text: "从离子通道、神经元、网络到神经环路，记录模型尺度之间的连接。"
+    id: "complex",
+    title: "复杂系统",
+    titleEn: "Complex Systems",
+    text: "从相互作用、网络结构和非线性动力学理解涌现、临界性、自组织与集体行为。",
+    textEn: "Explains emergence, criticality, self-organization and collective behavior through interactions, networks and nonlinear dynamics.",
+    terms: ["复杂系统", "complex systems", "智能复杂体系", "emergence", "criticality", "nonlinear", "network dynamics"]
   },
   {
-    title: "类脑 AI 与神经形态",
-    text: "追踪脉冲神经网络、神经形态计算、脑启发学习和节能 AI。"
+    id: "computational-neuro",
+    title: "计算神经科学",
+    titleEn: "Computational Neuroscience",
+    text: "用数学和计算模型解释神经元、网络与行为之间的关系，是 NeuroAI 的基础语言。",
+    textEn: "Uses mathematical and computational models to connect neurons, networks and behavior, forming a foundation for NeuroAI.",
+    terms: ["计算神经科学", "computational neuroscience", "神经计算", "神经动力学", "neural dynamics"]
+  },
+  {
+    id: "brain-inspired",
+    title: "类脑智能",
+    titleEn: "Brain-inspired AI",
+    text: "从大脑的信息处理方式寻找更高效的 AI，包括脉冲网络、神经形态硬件和脑启发学习。",
+    textEn: "Builds more efficient AI from brain computation, including spiking networks, neuromorphic hardware and brain-inspired learning.",
+    terms: ["类脑智能", "brain-inspired", "脉冲神经网络", "spiking", "神经形态", "neuromorphic"]
+  },
+  {
+    id: "brain-energy",
+    title: "神经能量",
+    titleEn: "Brain Energy",
+    text: "关注神经信号的能量成本、代谢约束，以及大脑为何能用很低功耗完成复杂计算。",
+    textEn: "Studies the energetic cost of neural signaling, metabolic constraints and the brain's remarkably efficient computation.",
+    terms: ["神经能量", "脑能量", "brain energy", "metabolic", "代谢", "energy budget"]
   }
 ];
 
@@ -791,7 +823,7 @@ const themeKey = "neuroai-daily-theme";
 const favoritesKey = "neuroai-daily-favorites";
 const notesKey = "neuroai-daily-notes";
 const langKey = "neuroai-daily-lang";
-const starterFlagKey = "neuroai-daily-starters-v5";
+const knownSeedKey = "neuroai-daily-known-seeds-v1";
 const migrationKey = "neuroai-daily-migration-v5";
 const uiText = {
   zh: {
@@ -806,7 +838,6 @@ const uiText = {
     cardChronicle: "历史、影响、就业",
     cardLearn: "入门阅读路线",
     cardNotes: "收藏与来源",
-    briefTitle: "Brief",
     archiveTitle: "Archive",
     focusTitle: "Focus",
     keywordsTitle: "Keywords",
@@ -839,7 +870,6 @@ const uiText = {
     cardChronicle: "History, impact, career",
     cardLearn: "First reading path",
     cardNotes: "Saved reads and sources",
-    briefTitle: "Brief",
     archiveTitle: "Archive",
     focusTitle: "Focus",
     keywordsTitle: "Keywords",
@@ -862,7 +892,8 @@ const uiText = {
   }
 };
 let articles = repairArticleDates(ensureStarterArticles(loadArticles()));
-let activeFilter = "all";
+let activeFilter = "date";
+let activeFocus = "all";
 let favoriteIds = loadFavorites();
 let activeView = "daily";
 let activeTimelineFilter = "all";
@@ -874,8 +905,7 @@ const els = {
   paperList: document.querySelector("#paperList"),
   newsList: document.querySelector("#newsList"),
   hero: document.querySelector(".hero"),
-  briefOutput: document.querySelector("#briefOutput"),
-  briefDate: document.querySelector("#briefDate"),
+  selectedDate: document.querySelector("#selectedDate"),
   archiveList: document.querySelector("#archiveList"),
   focusList: document.querySelector("#focusList"),
   sourceList: document.querySelector("#sourceList"),
@@ -884,6 +914,9 @@ const els = {
   metricHigh: document.querySelector("#metricHigh"),
   metricSources: document.querySelector("#metricSources"),
   metricDays: document.querySelector("#metricDays"),
+  dailyDateLabel: document.querySelector("#dailyDateLabel"),
+  paperCount: document.querySelector("#paperCount"),
+  newsCount: document.querySelector("#newsCount"),
   langButton: document.querySelector("#langButton"),
   exportButton: document.querySelector("#exportButton"),
   copyPromptButton: document.querySelector("#copyPromptButton"),
@@ -909,7 +942,7 @@ const els = {
 init();
 
 function init() {
-  els.briefDate.value = todayISO();
+  els.selectedDate.value = todayISO();
   document.querySelector("#dateInput").value = todayISO();
   document.body.classList.toggle("dark", localStorage.getItem(themeKey) === "dark");
 
@@ -924,10 +957,14 @@ function init() {
   els.themeButton.addEventListener("click", toggleTheme);
   els.hero.addEventListener("pointermove", moveCosmos);
   els.hero.addEventListener("pointerleave", resetCosmos);
-  els.briefDate.addEventListener("change", renderWithMotion);
+  els.selectedDate.addEventListener("change", () => {
+    setActiveFilter("date");
+    renderWithMotion();
+  });
   els.prevDateButton.addEventListener("click", () => moveSelectedDate(-1));
   els.todayButton.addEventListener("click", () => {
-    els.briefDate.value = todayISO();
+    els.selectedDate.value = todayISO();
+    setActiveFilter("date");
     renderWithMotion();
   });
   els.nextDateButton.addEventListener("click", () => moveSelectedDate(1));
@@ -986,16 +1023,31 @@ function loadFavorites() {
 }
 
 function ensureStarterArticles(items) {
-  if (localStorage.getItem(starterFlagKey)) return items;
-
   const starters = starterArticles();
-  const existingTitles = new Set(items.map((item) => item.title));
-  const additions = starters.filter((item) => !existingTitles.has(item.title));
+  const existingIdentities = new Set(items.map(seedIdentity));
+  let knownIdentities = [];
+
+  try {
+    const parsed = JSON.parse(localStorage.getItem(knownSeedKey) || "[]");
+    knownIdentities = Array.isArray(parsed) ? parsed : [];
+  } catch {
+    knownIdentities = [];
+  }
+
+  const known = new Set(knownIdentities);
+  const additions = starters.filter((item) => {
+    const identity = seedIdentity(item);
+    return !known.has(identity) && !existingIdentities.has(identity);
+  });
   const nextItems = [...additions, ...items];
 
-  localStorage.setItem(starterFlagKey, "true");
-  localStorage.setItem(storageKey, JSON.stringify(nextItems));
+  localStorage.setItem(knownSeedKey, JSON.stringify(starters.map(seedIdentity)));
+  if (additions.length) localStorage.setItem(storageKey, JSON.stringify(nextItems));
   return nextItems;
+}
+
+function seedIdentity(item) {
+  return item.identifier || item.url || item.title.trim().toLowerCase();
 }
 
 function repairArticleDates(items) {
@@ -1007,13 +1059,15 @@ function repairArticleDates(items) {
     "Neuromorphic computing and brain-inspired intelligence review": "2024-06-01"
   };
 
-  const repaired = items.map((item) => {
-    if (!legacyDates[item.title]) return item;
-    const repairedDate = item.published || legacyDates[item.title];
-    return { ...item, date: repairedDate };
-  });
+  const repaired = items
+    .filter((item) => !(item.title === "侵入式语音 BCI 的长期稳定性报告" && item.source === "示例条目"))
+    .map((item) => {
+      if (!legacyDates[item.title]) return item;
+      const repairedDate = item.published || legacyDates[item.title];
+      return { ...item, date: repairedDate };
+    });
 
-  if (!localStorage.getItem(migrationKey)) {
+  if (!localStorage.getItem(migrationKey) || repaired.length !== items.length) {
     localStorage.setItem(migrationKey, "true");
     localStorage.setItem(storageKey, JSON.stringify(repaired));
   }
@@ -1028,7 +1082,7 @@ function seedArticles() {
 function starterArticles() {
   return [
     {
-      id: crypto.randomUUID(),
+      id: "seed-bci-ai-copilots",
       title: "Brain-computer interface control with artificial intelligence copilots",
       url: "https://www.nature.com/articles/s42256-025-01090-y",
       identifier: "10.1038/s42256-025-01090-y",
@@ -1044,28 +1098,12 @@ function starterArticles() {
       notes: "阅读时重点验证：是否有真实在线 BCI 实验、AI copilot 如何建模不确定性、性能提升是否来自神经信号解码本身。"
     },
     {
-      id: crypto.randomUUID(),
-      title: "侵入式语音 BCI 的长期稳定性报告",
-      url: "",
-      identifier: "",
-      source: "示例条目",
-      date: "2025-08-15",
-      published: "",
-      topic: "侵入式脑机接口",
-      priority: "medium",
-      evidence: "paper",
-      keywords: ["speech BCI", "long-term stability", "neural decoding", "signal drift"],
-      result: "待补原文后填写：重点看长期记录中神经信号稳定性、校准频率、解码准确率和跨天泛化。",
-      significance: "这类文章有助于判断脑机接口从演示走向长期使用时，真正瓶颈是硬件稳定性、神经信号漂移还是解码算法。",
-      notes: "没有原文链接时，卡片会自动给出 Semantic Scholar、arXiv 和 PubMed 检索入口。"
-    },
-    {
-      id: crypto.randomUUID(),
+      id: "seed-codex-access-2026-07-28",
       title: "Codex Access",
       url: "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
       identifier: "",
       source: "OpenAI Help",
-      date: todayISO(),
+      date: "2026-07-28",
       published: "",
       topic: "AI 工具动态",
       priority: "high",
@@ -1076,7 +1114,7 @@ function starterArticles() {
       notes: "建议把 X 上看到的额度说法回到 OpenAI Help 或账户内额度页面核验。"
     },
     {
-      id: crypto.randomUUID(),
+      id: "seed-snn-review-2024-10",
       title: "Spiking neural networks review",
       url: "https://www.semanticscholar.org/search?q=spiking%20neural%20networks%20review%20computational%20neuroscience&sort=relevance",
       identifier: "",
@@ -1092,7 +1130,7 @@ function starterArticles() {
       notes: "打开检索入口后优先选高被引综述或近三年综述。"
     },
     {
-      id: crypto.randomUUID(),
+      id: "seed-energy-budget-2001",
       title: "An energy budget for signaling in the grey matter of the brain",
       url: "https://www.semanticscholar.org/search?q=An%20energy%20budget%20for%20signaling%20in%20the%20grey%20matter%20of%20the%20brain&sort=relevance",
       identifier: "",
@@ -1108,7 +1146,7 @@ function starterArticles() {
       notes: "适合和神经信号动力学、多尺度脑网络模型一起读。"
     },
     {
-      id: crypto.randomUUID(),
+      id: "seed-neuromorphic-review-2024-06",
       title: "Neuromorphic computing and brain-inspired intelligence review",
       url: "https://www.semanticscholar.org/search?q=neuromorphic%20computing%20brain-inspired%20intelligence%20review&sort=relevance",
       identifier: "",
@@ -1211,8 +1249,8 @@ function addArticle(event) {
   els.articleForm.reset();
   document.querySelector("#dateInput").value = todayISO();
   showToast("已加入文章池");
-  setActiveFilter("today");
-  els.briefDate.value = article.date;
+  setActiveFilter("date");
+  els.selectedDate.value = article.date;
   renderWithMotion();
 }
 
@@ -1250,7 +1288,6 @@ function renderWithMotion() {
 function render() {
   renderMetrics();
   renderArchive();
-  renderBrief();
   renderArticles();
   renderNotebook();
   renderAIPulse();
@@ -1260,7 +1297,7 @@ function render() {
 }
 
 function renderMetrics() {
-  const date = els.briefDate.value || todayISO();
+  const date = els.selectedDate.value || todayISO();
   const dayItems = articles.filter((item) => item.date === date);
   els.metricToday.textContent = dayItems.length;
   els.metricHigh.textContent = dayItems.filter((item) => item.priority === "high").length;
@@ -1269,20 +1306,18 @@ function renderMetrics() {
 }
 
 function renderArchive() {
-  const selected = els.briefDate.value || todayISO();
+  const selected = els.selectedDate.value || todayISO();
   const dates = archiveDates();
+  const recentDates = dates.slice(0, 7);
+  const visibleDates = recentDates.includes(selected) ? recentDates : [selected, ...recentDates.slice(0, 6)];
 
-  els.archiveList.innerHTML = dates
+  els.archiveList.innerHTML = visibleDates
     .map((date) => {
       const dayItems = articles.filter((item) => item.date === date);
-      const high = dayItems.filter((item) => item.priority === "high").length;
       return `
         <button class="archive-button ${date === selected ? "is-active" : ""}" type="button" data-date="${date}">
-          <div class="archive-button__row">
-            <strong>${formatFullDate(date)}</strong>
-            <span>${dayItems.length} 条</span>
-          </div>
-          <span>${high ? `${high} 条高优先级` : "暂无高优先级"}</span>
+          <strong>${formatFullDate(date)}</strong>
+          <span>${dayItems.length}</span>
         </button>
       `;
     })
@@ -1290,66 +1325,47 @@ function renderArchive() {
 
   els.archiveList.querySelectorAll("[data-date]").forEach((button) => {
     button.addEventListener("click", () => {
-      els.briefDate.value = button.dataset.date;
-      setActiveFilter("today");
+      els.selectedDate.value = button.dataset.date;
+      setActiveFilter("date");
       renderWithMotion();
     });
   });
 }
 
-function renderBrief() {
-  const date = els.briefDate.value || todayISO();
-  const dayArticles = sortArticles(articles.filter((item) => item.date === date));
-  const papers = dayArticles.filter(isAcademicArticle);
-  const news = dayArticles.filter((item) => !isAcademicArticle(item));
-
-  if (!dayArticles.length) {
-    els.briefOutput.innerHTML = '<div class="empty">今天还没有更新。添加论文或新闻后，这里只生成短简报。</div>';
-    return;
-  }
-
-  els.briefOutput.innerHTML = `
-    <article class="brief-card brief-card--compact">
-      <h3>Papers</h3>
-      ${papers.length ? papers.slice(0, 2).map(renderBriefItem).join("") : "<p>今日没有已验证的新论文；不要用旧论文硬凑日报。</p>"}
-    </article>
-    <article class="brief-card brief-card--compact">
-      <h3>News</h3>
-      ${news.length ? news.slice(0, 3).map(renderBriefItem).join("") : "<p>今日没有需要记录的产业/政策消息。</p>"}
-    </article>
-    <article class="brief-card brief-card--compact">
-      <h3>Next</h3>
-      <p>${buildActionLine(dayArticles)}</p>
-    </article>
-  `;
-}
-
-function renderBriefItem(article) {
-  const primary = primaryArticleUrl(article);
-  const label = primary && primary.includes("semanticscholar.org/search") ? "检索" : isAcademicArticle(article) ? "原文" : "来源";
-  const linkText = primary ? ` <a href="${escapeAttribute(primary)}" target="_blank" rel="noreferrer">${label}</a>` : "";
-  return `<p><strong>${escapeHTML(article.title)}</strong>${linkText}：${escapeHTML(briefOneLine(article))}</p>`;
-}
-
-function briefOneLine(article) {
-  const text = isAcademicArticle(article)
-    ? article.result || article.significance || "需要读原文后补充核心发现。"
-    : article.significance || article.result || "简单工具/产业消息，记录来源即可。";
-  return compactText(text, isAcademicArticle(article) ? 92 : 64);
-}
-
 function renderArticles() {
-  const date = els.briefDate.value || todayISO();
+  const date = els.selectedDate.value || todayISO();
   const filtered = sortArticles(articles).filter((article) => {
-    if (activeFilter === "high") return article.priority === "high";
-    if (activeFilter === "today") return article.date === date;
-    return true;
+    const matchesListFilter =
+      activeFilter === "high" ? article.priority === "high" : activeFilter === "date" ? article.date === date : true;
+    return matchesListFilter && articleMatchesFocus(article);
   });
   const paperItems = filtered.filter(isAcademicArticle);
   const newsItems = filtered.filter((article) => !isAcademicArticle(article));
 
-  renderArticleGroup(els.paperList, paperItems, activeLang === "zh" ? "当前筛选下没有论文。" : "No papers in this view.");
-  renderArticleGroup(els.newsList, newsItems, activeLang === "zh" ? "当前筛选下没有新闻。" : "No news in this view.");
+  els.dailyDateLabel.textContent =
+    activeFilter === "date"
+      ? formatFullDate(date)
+      : activeFilter === "high"
+        ? activeLang === "zh"
+          ? "重点"
+          : "High priority"
+        : activeLang === "zh"
+          ? "全部记录"
+          : "All records";
+  els.paperCount.textContent = String(paperItems.length);
+  els.newsCount.textContent = String(newsItems.length);
+
+  renderArticleGroup(els.paperList, paperItems, activeLang === "zh" ? "这一天没有已记录的论文。" : "No papers recorded for this date.");
+  renderArticleGroup(els.newsList, newsItems, activeLang === "zh" ? "这一天没有已记录的新闻。" : "No news recorded for this date.");
+}
+
+function articleMatchesFocus(article) {
+  if (activeFocus === "all") return true;
+  const focus = focusAreas.find((item) => item.id === activeFocus);
+  if (!focus) return true;
+
+  const searchable = [article.title, article.topic, article.source, ...article.keywords].join(" ").toLowerCase();
+  return focus.terms.some((term) => searchable.includes(term.toLowerCase()));
 }
 
 function renderArticleGroup(container, items, emptyText) {
@@ -1647,7 +1663,7 @@ function collectChronicleItem(id) {
     url: item.url,
     identifier: "",
     source: item.source,
-    date: els.briefDate.value || todayISO(),
+    date: els.selectedDate.value || todayISO(),
     published: item.date.length === 4 ? "" : item.date,
     topic: item.topic,
     priority: item.region === "入门" ? "medium" : "high",
@@ -1660,7 +1676,7 @@ function collectChronicleItem(id) {
 
   articles = [article, ...articles];
   saveArticles();
-  setActiveFilter("today");
+  setActiveFilter("date");
   showToast("已加入文章池");
   renderWithMotion();
 }
@@ -1701,7 +1717,7 @@ function collectPulseItem(id) {
     url: item.url,
     identifier: "",
     source: item.source,
-    date: els.briefDate.value || todayISO(),
+    date: els.selectedDate.value || todayISO(),
     published: item.date,
     topic: "AI 工具动态",
     priority: item.confidence === "官方核验" ? "high" : "medium",
@@ -1714,7 +1730,7 @@ function collectPulseItem(id) {
 
   articles = [article, ...articles];
   saveArticles();
-  setActiveFilter("today");
+  setActiveFilter("date");
   showToast("已加入文章池");
   renderWithMotion();
 }
@@ -1765,7 +1781,7 @@ function collectClassic(id) {
     url: item.url,
     identifier: "",
     source: item.source,
-    date: els.briefDate.value || todayISO(),
+    date: els.selectedDate.value || todayISO(),
     published: "",
     topic: item.topic,
     priority: "high",
@@ -1780,15 +1796,49 @@ function collectClassic(id) {
   favoriteIds = [article.id, ...favoriteIds];
   saveArticles();
   saveFavorites();
-  setActiveFilter("today");
+  setActiveFilter("date");
   showToast("已收藏经典入口");
   renderWithMotion();
 }
 
 function renderStaticLists() {
-  els.focusList.innerHTML = focusAreas
-    .map((item) => `<article class="focus-item"><h3>${item.title}</h3><p>${item.text}</p></article>`)
+  const allLabel = activeLang === "zh" ? "全部" : "All";
+  const focusButtons = focusAreas
+    .map((item) => {
+      const title = activeLang === "zh" ? item.title : item.titleEn;
+      const text = activeLang === "zh" ? item.text : item.textEn;
+      return `
+        <button
+          class="focus-chip ${activeFocus === item.id ? "is-active" : ""}"
+          type="button"
+          data-focus="${item.id}"
+          aria-pressed="${activeFocus === item.id}"
+        >
+          <span>${escapeHTML(title)}</span>
+          <span class="focus-tooltip" role="tooltip">${escapeHTML(text)}</span>
+        </button>
+      `;
+    })
     .join("");
+
+  els.focusList.innerHTML = `
+    <button
+      class="focus-chip ${activeFocus === "all" ? "is-active" : ""}"
+      type="button"
+      data-focus="all"
+      aria-pressed="${activeFocus === "all"}"
+    >
+      <span>${allLabel}</span>
+    </button>
+    ${focusButtons}
+  `;
+  els.focusList.querySelectorAll("[data-focus]").forEach((button) => {
+    button.addEventListener("click", () => {
+      activeFocus = button.dataset.focus;
+      renderStaticLists();
+      renderWithMotion();
+    });
+  });
 
   els.sourceList.innerHTML = sourceGroups
     .map((group) => {
@@ -1821,7 +1871,7 @@ function renderStaticLists() {
 }
 
 function renderPrompt() {
-  const date = els.briefDate.value || todayISO();
+  const date = els.selectedDate.value || todayISO();
   const dayArticles = sortArticles(articles.filter((item) => item.date === date));
   const keywordLines = keywordGroups.map((group) => `${group.category}：${group.keywords.join("，")}`).join("\n");
   const articleLines = dayArticles
@@ -1863,7 +1913,7 @@ ${articleLines || "这一天还没有文章。请先添加文章标题、链接�
 }
 
 function exportBrief() {
-  const date = els.briefDate.value || todayISO();
+  const date = els.selectedDate.value || todayISO();
   const dayArticles = sortArticles(articles.filter((item) => item.date === date));
   const markdown = [
     `# NeuroAI Daily - ${date}`,
@@ -1956,8 +2006,8 @@ function t(key) {
 }
 
 function moveSelectedDate(delta) {
-  els.briefDate.value = addDays(els.briefDate.value || todayISO(), delta);
-  setActiveFilter("today");
+  els.selectedDate.value = addDays(els.selectedDate.value || todayISO(), delta);
+  setActiveFilter("date");
   renderWithMotion();
 }
 
@@ -2019,20 +2069,6 @@ function importanceLabel(importance = "normal") {
       normal: t("importantNormal")
     }[importance] || "记录"
   );
-}
-
-function buildActionLine(items) {
-  const papers = items.filter(isAcademicArticle);
-  const news = items.filter((item) => !isAcademicArticle(item));
-
-  if (!papers.length && news.length) {
-    return "今日只有新闻/工具动态：保留来源，确认是否影响你的工作流；没有必要写成长篇研究摘要。";
-  }
-
-  const needsOriginal = items.filter((item) => item.priority === "high").length;
-  const missingLinks = items.filter((item) => !primaryArticleUrl(item)).length;
-  const topics = Object.keys(countBy(items, "topic")).slice(0, 3).join("、");
-  return `先读 ${Math.min(needsOriginal || papers.length || 1, 2)} 条论文原文；${missingLinks ? `为 ${missingLinks} 条补齐 DOI、arXiv 或 PMID；` : ""}只记录 ${topics || "核心方向"} 的方法、数据和结论强度。`;
 }
 
 function articleLinks(article) {

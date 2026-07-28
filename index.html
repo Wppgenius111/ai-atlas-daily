@@ -83,44 +83,32 @@
     </header>
 
     <main>
-      <section class="workspace page-section" id="brief" data-page="daily">
-        <div class="panel panel--primary">
+      <section class="panel daily-date-band page-section" data-page="daily">
+        <div class="daily-date-band__main">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Daily Brief</p>
-              <h2 data-i18n="briefTitle">Brief</h2>
+              <p class="eyebrow">Date</p>
+              <h2 data-i18n="archiveTitle">Archive</h2>
             </div>
-            <input class="date-input" id="briefDate" type="date" />
-          </div>
-          <div id="briefOutput" class="brief-output"></div>
-        </div>
-
-        <aside class="side-stack">
-          <section class="panel">
-            <div class="section-head">
-              <div>
-                <p class="eyebrow">Archive</p>
-                <h2 data-i18n="archiveTitle">Archive</h2>
-              </div>
+            <div class="date-picker">
               <div class="date-tools" aria-label="切换日期">
                 <button class="icon-button" id="prevDateButton" type="button" aria-label="前一天" title="前一天">‹</button>
                 <button class="icon-button" id="todayButton" type="button" aria-label="今天" title="今天">◎</button>
                 <button class="icon-button" id="nextDateButton" type="button" aria-label="后一天" title="后一天">›</button>
               </div>
+              <input class="date-input" id="selectedDate" type="date" aria-label="选择日报日期" />
             </div>
-            <div class="archive-list" id="archiveList"></div>
-          </section>
+          </div>
+        </div>
+        <div class="archive-list archive-list--rail" id="archiveList"></div>
+      </section>
 
-          <section class="panel">
-            <div class="section-head">
-              <div>
-                <p class="eyebrow">Focus</p>
-                <h2 data-i18n="focusTitle">Focus</h2>
-              </div>
-            </div>
-            <div class="focus-list" id="focusList"></div>
-          </section>
-        </aside>
+      <section class="panel focus-band page-section" data-page="daily">
+        <div class="focus-band__label">
+          <p class="eyebrow">Focus</p>
+          <h2 data-i18n="focusTitle">Focus</h2>
+        </div>
+        <div class="focus-list" id="focusList"></div>
       </section>
 
       <section class="panel keyword-band page-section" data-page="notebook">
@@ -135,7 +123,15 @@
       </section>
 
       <section class="entry-band page-section" data-page="daily">
-        <form class="entry-form" id="articleForm">
+        <details class="entry-disclosure">
+          <summary>
+            <span>
+              <small>Inbox</small>
+              <strong data-i18n="inboxTitle">Add</strong>
+            </span>
+            <i aria-hidden="true">+</i>
+          </summary>
+          <form class="entry-form" id="articleForm">
           <div class="section-head">
             <div>
               <p class="eyebrow">Inbox</p>
@@ -173,6 +169,7 @@
               <span>方向</span>
               <select id="topicInput" name="topic">
                 <option>计算神经科学</option>
+                <option>复杂系统</option>
                 <option>神经信号动力学</option>
                 <option>脑能量学</option>
                 <option>神经信息处理</option>
@@ -229,7 +226,8 @@
               <textarea id="significanceInput" name="significance" rows="3" placeholder="为什么值得读；它和 NeuroAI / BCI / brain-inspired AI 有什么关系。"></textarea>
             </label>
           </div>
-        </form>
+          </form>
+        </details>
       </section>
 
       <section class="panel column-band page-section" data-page="chronicle">
@@ -256,27 +254,27 @@
         <div class="panel page-section-inner" data-page-inner="daily">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Library</p>
-              <h2>Library</h2>
+              <p class="eyebrow" id="dailyDateLabel">Today</p>
+              <h2>Daily Update</h2>
             </div>
             <div class="segmented" role="tablist" aria-label="文章筛选">
-              <button type="button" class="segment is-active" data-filter="all">All</button>
+              <button type="button" class="segment is-active" data-filter="date">Date</button>
+              <button type="button" class="segment" data-filter="all">All</button>
               <button type="button" class="segment" data-filter="high">High</button>
-              <button type="button" class="segment" data-filter="today">Today</button>
             </div>
           </div>
           <div class="daily-split">
             <section class="daily-column">
               <div class="daily-column__head">
                 <span>Papers</span>
-                <small>Academic first</small>
+                <small id="paperCount">0</small>
               </div>
               <div class="article-list" id="paperList"></div>
             </section>
             <section class="daily-column">
               <div class="daily-column__head">
                 <span>News</span>
-                <small>Industry / policy</small>
+                <small id="newsCount">0</small>
               </div>
               <div class="article-list" id="newsList"></div>
             </section>
