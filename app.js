@@ -29,6 +29,35 @@ const sourceGroups = [
     ]
   },
   {
+    category: "Robotics",
+    items: [
+      {
+        name: "IEEE Spectrum Robotics",
+        cadence: "Daily",
+        url: "https://spectrum.ieee.org/robotics",
+        note: "机器人研究、产品、工程限制和真实部署进展。"
+      },
+      {
+        name: "Google DeepMind Robotics",
+        cadence: "Weekly",
+        url: "https://deepmind.google/discover/blog/?topics=robotics",
+        note: "跟踪机器人基础模型、视觉-语言-动作模型和通用控制。"
+      },
+      {
+        name: "NVIDIA Robotics",
+        cadence: "Weekly",
+        url: "https://blogs.nvidia.com/blog/category/robotics/",
+        note: "跟踪仿真、世界模型、机器人训练平台和边缘算力。"
+      },
+      {
+        name: "Unitree",
+        cadence: "Weekly",
+        url: "https://www.unitree.com/",
+        note: "核验宇树人形与四足机器人发布、演示和产品信息。"
+      }
+    ]
+  },
+  {
     category: "AI pulse",
     items: [
       {
@@ -38,10 +67,10 @@ const sourceGroups = [
         note: "用作热点雷达，看到额度或模型传闻后回到官方页面核验。"
       },
       {
-        name: "X: AI agents live",
+        name: "X: AI / Robotics live",
         cadence: "Daily",
-        url: "https://x.com/search?q=%28AI%20agents%20OR%20OpenAI%20agents%20OR%20Codex%29&src=typed_query&f=live",
-        note: "追踪 AI agents、开发者工具和模型发布讨论。"
+        url: "https://x.com/search?q=%28AI%20agents%20OR%20humanoid%20robots%20OR%20embodied%20AI%20OR%20brain-computer%20interface%29&src=typed_query&f=live",
+        note: "发现 AI、机器人、具身智能和脑机接口热点，再回到原始来源核验。"
       },
       {
         name: "OpenAI Release Notes",
@@ -168,28 +197,28 @@ const aiPulseItems = [
     url: "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
     confidence: "官方核验",
     keywords: ["Codex", "rate limits", "OpenAI", "AI tools"],
-    result: "官方帮助页说明 Codex 的可用计划和使用限制会随 ChatGPT 计划、账户状态和额度政策变化。",
-    significance: "这解释了 X 上“Codex 额度变多”的讨论来源；真正可用额度仍应以账户内显示、官方帮助页和产品提示为准。"
+    result: "OpenAI 帮助页称 Codex 已包含在各 ChatGPT 计划中，包括 Free 和 Go；使用上限因计划而异。",
+    significance: "该页面没有公布统一的“额度增加倍数”，并将更高用量选项指向 ChatGPT 定价页；个人可用量以账户内显示为准。"
   },
   {
-    id: "chatgpt-release-codex-resets",
-    title: "Codex Updates",
-    source: "OpenAI Release Notes",
-    date: "2026-07-20",
-    url: "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    id: "eu-ai-transparency-2026-07",
+    title: "EU AI Transparency",
+    source: "European Commission",
+    date: "2026-07-27",
+    url: "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
     confidence: "官方核验",
-    keywords: ["Codex", "release notes", "rate-limit resets", "developer tools"],
-    result: "ChatGPT 发布记录中持续出现 Codex 相关更新，包括任务控制、移动端体验、开发者模式和额度重置相关说明。",
-    significance: "如果你要用 Codex 做日常文献整理或代码工作，额度/任务控制更新会直接影响工作流效率。"
+    keywords: ["EU AI Act", "transparency", "AI-generated content", "deepfakes"],
+    result: "欧盟委员会发布 AI Act 第 50 条透明度义务指南，相关义务自 2026 年 8 月 2 日起适用。",
+    significance: "提供者和部署者需在特定场景告知用户正在与 AI 交互，并对 AI 生成或篡改内容进行可识别标记。"
   },
   {
-    id: "x-codex-ai-live-search",
-    title: "X AI Radar",
+    id: "x-ai-robotics-live-search",
+    title: "X Radar",
     source: "X Live Search",
     date: "2026-07-20",
-    url: "https://x.com/search?q=%28OpenAI%20Codex%20OR%20AI%20agents%20OR%20rate%20limits%29&src=typed_query&f=live",
+    url: "https://x.com/search?q=%28AI%20agents%20OR%20humanoid%20robots%20OR%20embodied%20AI%20OR%20brain-computer%20interface%29&src=typed_query&f=live",
     confidence: "X 待核验",
-    keywords: ["X", "Codex", "AI agents", "rate limits"],
+    keywords: ["X", "AI", "robotics", "embodied AI", "BCI"],
     result: "这是实时搜索入口，不是已核验结论；适合发现热点，再回到官方页面或原始公告确认。",
     significance: "把 X 当作早期雷达，而不是最终来源，可以减少被转述和夸张标题误导。"
   }
@@ -279,7 +308,7 @@ const chronicleSections = [
         significance: "它把航天、卫星互联网、遥感数据、边缘计算和 AI 基础设施放到同一个资本市场叙事中。",
         commentary: "社会新闻先看估值，AI 行业更该看通信、空间数据和边缘部署能力。",
         impact: "研究上可关注 remote sensing AI、edge AI、低延迟通信、机器人/无人系统；就业上，AI+航天/遥感/通信会变成更真实的交叉方向。",
-        career: "如果你喜欢 AI 又不想只卷大模型，可以补 GIS/遥感、边缘推理、机器人感知、卫星数据处理。"
+        career: "相关岗位需要 GIS/遥感、边缘推理、机器人感知或卫星数据处理能力。"
       },
       {
         id: "deepseek-v4-watch",
@@ -335,6 +364,22 @@ const chronicleSections = [
         commentary: "媒体将其视为美国 AI 产业政策的系统化。",
         impact: "研究和就业都要关注模型之外的基础设施、能源和政策。",
         career: "AI infra、芯片生态、数据中心和合规岗位会持续增长。"
+      },
+      {
+        id: "beijing-humanoid-marathon-2025",
+        title: "Humanoid Marathon",
+        source: "北京经济技术开发区",
+        date: "2025-04-19",
+        url: "https://kfqgw.beijing.gov.cn/ywdt/gzdt/202504/t20250421_4244609.html",
+        region: "China",
+        topic: "Robotics",
+        keywords: ["humanoid robots", "robot marathon", "Unitree", "embodied AI", "real-world testing"],
+        importance: "high",
+        result: "北京亦庄举办全球首场人与人形机器人同场的半程马拉松；赛事同时检验续航、运动控制、换电和复杂道路适应能力。",
+        significance: "机器人比赛的价值不只是表演，而是把实验室指标放到长距离、真实路况和连续运行条件下公开验证。",
+        commentary: "官方报道同时记录了宇树四足机器人表演；人形机器人竞赛与宇树展示应区分，不宜笼统写成“宇树机器人赢得马拉松”。",
+        impact: "研究上应关注自主导航、动态平衡、能耗、故障恢复和 sim-to-real；产业上说明赛事正在成为机器人公开测试场。",
+        career: "可关注机器人控制、强化学习、感知导航、嵌入式系统、仿真平台和测试工程岗位。"
       },
       {
         id: "deepseek-r1",
@@ -708,7 +753,7 @@ const keywordGroups = [
   },
   {
     category: "类脑 AI",
-    keywords: ["脉冲神经网络", "神经形态计算", "仿生智能", "具身智能", "embodied AI", "机器人学习", "world models", "vision-language-action models", "高效节能信息处理", "低功耗神经网络连接", "神经编码与解码", "脑启发学习算法"]
+    keywords: ["脉冲神经网络", "神经形态计算", "仿生智能", "具身智能", "embodied AI", "机器人", "humanoid robots", "机器人学习", "world models", "vision-language-action models", "高效节能信息处理", "低功耗神经网络连接", "神经编码与解码", "脑启发学习算法"]
   },
   {
     category: "疾病与应用",
@@ -769,6 +814,14 @@ const classicReads = [
 
 const focusAreas = [
   {
+    id: "ai",
+    title: "人工智能",
+    titleEn: "AI",
+    text: "关注基础模型、智能体、开源生态、算力、产品发布、监管和产业变化。",
+    textEn: "Tracks foundation models, agents, open ecosystems, compute, product releases, regulation and industry shifts.",
+    terms: ["ai", "人工智能", "foundation model", "agent", "open-weight", "大模型"]
+  },
+  {
     id: "bci",
     title: "脑机接口",
     titleEn: "BCI",
@@ -783,6 +836,14 @@ const focusAreas = [
     text: "研究智能体如何通过身体、环境和行动学习，覆盖机器人学习、世界模型与视觉-语言-动作模型。",
     textEn: "Studies how agents learn through bodies, environments and action, including robot learning, world models and VLA models.",
     terms: ["具身智能", "embodied ai", "机器人学习", "robot learning", "world model", "vision-language-action", "vla"]
+  },
+  {
+    id: "robotics",
+    title: "机器人",
+    titleEn: "Robotics",
+    text: "关注人形机器人、四足机器人、灵巧操作、自主导航、运动控制以及从展示走向真实部署的进展。",
+    textEn: "Tracks humanoid and quadruped robots, dexterous manipulation, navigation, control and the shift from demos to deployment.",
+    terms: ["机器人", "robot", "robotics", "humanoid", "quadruped", "manipulation", "宇树", "unitree"]
   },
   {
     id: "complex",
@@ -919,7 +980,6 @@ const els = {
   newsCount: document.querySelector("#newsCount"),
   langButton: document.querySelector("#langButton"),
   exportButton: document.querySelector("#exportButton"),
-  copyPromptButton: document.querySelector("#copyPromptButton"),
   copyKeywordsButton: document.querySelector("#copyKeywordsButton"),
   saveNotesButton: document.querySelector("#saveNotesButton"),
   keywordList: document.querySelector("#keywordList"),
@@ -931,7 +991,6 @@ const els = {
   timelineNav: document.querySelector("#timelineNav"),
   timelineDetail: document.querySelector("#timelineDetail"),
   paperPath: document.querySelector("#paperPath"),
-  promptBox: document.querySelector("#promptBox"),
   themeButton: document.querySelector("#themeButton"),
   prevDateButton: document.querySelector("#prevDateButton"),
   todayButton: document.querySelector("#todayButton"),
@@ -949,7 +1008,6 @@ function init() {
   els.articleForm.addEventListener("submit", addArticle);
   els.langButton.addEventListener("click", toggleLanguage);
   els.exportButton.addEventListener("click", exportBrief);
-  els.copyPromptButton.addEventListener("click", copyPrompt);
   els.copyKeywordsButton.addEventListener("click", copyKeywords);
   els.saveNotesButton.addEventListener("click", saveNotes);
   els.notesBox.value = localStorage.getItem(notesKey) || "";
@@ -1024,7 +1082,12 @@ function loadFavorites() {
 
 function ensureStarterArticles(items) {
   const starters = starterArticles();
-  const existingIdentities = new Set(items.map(seedIdentity));
+  const starterByIdentity = new Map(starters.map((item) => [seedIdentity(item), item]));
+  const refreshedItems = items.map((item) => {
+    const starter = starterByIdentity.get(seedIdentity(item));
+    return starter ? { ...starter, id: item.id } : item;
+  });
+  const existingIdentities = new Set(refreshedItems.map(seedIdentity));
   let knownIdentities = [];
 
   try {
@@ -1039,10 +1102,12 @@ function ensureStarterArticles(items) {
     const identity = seedIdentity(item);
     return !known.has(identity) && !existingIdentities.has(identity);
   });
-  const nextItems = [...additions, ...items];
+  const nextItems = [...additions, ...refreshedItems];
 
   localStorage.setItem(knownSeedKey, JSON.stringify(starters.map(seedIdentity)));
-  if (additions.length) localStorage.setItem(storageKey, JSON.stringify(nextItems));
+  if (additions.length || JSON.stringify(refreshedItems) !== JSON.stringify(items)) {
+    localStorage.setItem(storageKey, JSON.stringify(nextItems));
+  }
   return nextItems;
 }
 
@@ -1094,7 +1159,7 @@ function starterArticles() {
       evidence: "paper",
       keywords: ["BCI control", "AI copilot", "human-in-the-loop", "shared autonomy", "brain-inspired intelligence"],
       result: "文章把 AI copilot 引入脑机接口控制问题，核心结果是提出一种让 AI 辅助解释意图、补偿控制误差、提升交互效率的框架。",
-      significance: "对你的阅读目标来说，它的意义不在单纯 BCI 产品，而在“神经信号 + 智能系统”如何形成闭环控制，可连接类脑智能、神经计算和低负担人机协同。",
+      significance: "该工作把神经信号解码与智能系统的闭环控制连接起来，体现 AI 在共享控制和降低 BCI 操作负担中的作用。",
       notes: "阅读时重点验证：是否有真实在线 BCI 实验、AI copilot 如何建模不确定性、性能提升是否来自神经信号解码本身。"
     },
     {
@@ -1109,9 +1174,73 @@ function starterArticles() {
       priority: "high",
       evidence: "industry",
       keywords: ["Codex", "rate limits", "OpenAI", "developer tools"],
-      result: "官方帮助页说明 Codex 的使用限制与 ChatGPT 计划、账户状态和额度政策相关，实际额度需要以官方页面和账户内显示为准。",
-      significance: "这条可以解释你说的“最近 Codex 可以更新很多额度”：它不是论文结果，而是工具额度/套餐策略变化，影响日常调研与编码工作流。",
-      notes: "建议把 X 上看到的额度说法回到 OpenAI Help 或账户内额度页面核验。"
+      result: "OpenAI 帮助页称 Codex 已包含在各 ChatGPT 计划中，包括 Free 和 Go；使用上限因计划而异。",
+      significance: "该页面没有公布统一的额度增加倍数，并将更高用量选项指向 ChatGPT 定价页；个人可用量以账户内显示为准。",
+      notes: "来源：OpenAI Help，页面于 2026-07-28 更新。"
+    },
+    {
+      id: "seed-open-weight-shift-2026-07-28",
+      title: "Chinese open-weight models reshape AI deployment choices",
+      url: "https://www.theverge.com/ai-artificial-intelligence/971444/how-chinese-open-weight-ai-models-impact-us-companies",
+      identifier: "",
+      source: "The Verge",
+      date: "2026-07-28",
+      published: "2026-07-27",
+      topic: "AI",
+      priority: "high",
+      evidence: "media",
+      keywords: ["open-weight models", "China AI", "deployment", "model cost"],
+      result: "报道梳理了中国开权重模型如何凭借成本和可部署性进入美国企业与开发者的技术选型。",
+      significance: "竞争维度从单一模型能力扩展到本地部署、价格、生态控制和供应链风险。",
+      notes: "媒体报道；涉及的模型能力和市场份额仍需结合原始模型报告与企业披露核验。"
+    },
+    {
+      id: "seed-eu-ai-transparency-2026-07-28",
+      title: "EU publishes AI transparency guidelines",
+      url: "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
+      identifier: "",
+      source: "European Commission",
+      date: "2026-07-28",
+      published: "2026-07-20",
+      topic: "AI 政策",
+      priority: "high",
+      evidence: "policy",
+      keywords: ["EU AI Act", "transparency", "AI-generated content", "deepfakes"],
+      result: "欧盟委员会发布 AI Act 第 50 条透明度义务指南，相关义务自 2026 年 8 月 2 日起适用。",
+      significance: "提供者和部署者需在特定场景告知用户正在与 AI 交互，并对 AI 生成或篡改内容进行可识别标记。",
+      notes: "官方页面发布于 2026-07-20，最后更新于 2026-07-27。"
+    },
+    {
+      id: "seed-bci-neuroprosthesis-2026-07-16",
+      title: "A neuroprosthesis for restoring hand movement and sensation in a person with complete tetraplegia",
+      url: "https://www.nature.com/articles/s41591-026-04498-0",
+      identifier: "10.1038/s41591-026-04498-0",
+      source: "Nature Medicine",
+      date: "2026-07-16",
+      published: "2026-07-16",
+      topic: "脑机接口",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["BCI", "neuroprosthesis", "spinal cord stimulation", "sensory feedback"],
+      result: "单例临床研究中的双神经旁路系统恢复了部分手部运动和触觉；运动意图识别持续超过 5 个月且无需反复训练。",
+      significance: "结果提示 BCI 可从实时控制扩展到运动与感觉双向恢复，但证据目前来自单名受试者，仍需更大样本验证。",
+      notes: "原始论文与 Nature 新闻稿均强调系统高度专门化，现阶段仍需训练人员操作。"
+    },
+    {
+      id: "seed-xiaomi-robotics-u0-2026-07-13",
+      title: "Xiaomi-Robotics-U0: Unified Embodied Synthesis with World Foundation Model",
+      url: "https://arxiv.org/abs/2607.11643",
+      identifier: "arXiv:2607.11643",
+      source: "arXiv",
+      date: "2026-07-13",
+      published: "2026-07-13",
+      topic: "具身智能",
+      priority: "high",
+      evidence: "preprint",
+      keywords: ["embodied AI", "world model", "robot data", "manipulation"],
+      result: "论文提出 380 亿参数的具身生成模型，并报告将 pi_0.5 在困难真实操作任务上的分布外成功率从 36.9% 提升至 63.2%。",
+      significance: "工作把世界模型作为机器人数据引擎，用生成的一致多视角场景缓解真实机器人数据稀缺问题。",
+      notes: "预印本，结果尚未经过同行评审；代码和权重由作者公开。"
     },
     {
       id: "seed-snn-review-2024-10",
@@ -1197,7 +1326,7 @@ function applyDefaultInsights(article) {
         "文章把 AI copilot 引入脑机接口控制问题，核心结果是提出一种让 AI 辅助解释意图、补偿控制误差、提升交互效率的框架。",
       significance:
         article.significance ||
-        "对你的阅读目标来说，它的意义不在单纯 BCI 产品，而在“神经信号 + 智能系统”如何形成闭环控制，可连接类脑智能、神经计算和低负担人机协同。",
+        "该工作把神经信号解码与智能系统的闭环控制连接起来，体现 AI 在共享控制和降低 BCI 操作负担中的作用。",
       notes: article.notes.startsWith("示例：")
         ? "阅读时重点验证：是否有真实在线 BCI 实验、AI copilot 如何建模不确定性、性能提升是否来自神经信号解码本身。"
         : article.notes
@@ -1293,7 +1422,6 @@ function render() {
   renderAIPulse();
   renderChronicle();
   renderPaperPath();
-  renderPrompt();
 }
 
 function renderMetrics() {
@@ -1355,8 +1483,8 @@ function renderArticles() {
   els.paperCount.textContent = String(paperItems.length);
   els.newsCount.textContent = String(newsItems.length);
 
-  renderArticleGroup(els.paperList, paperItems, activeLang === "zh" ? "这一天没有已记录的论文。" : "No papers recorded for this date.");
-  renderArticleGroup(els.newsList, newsItems, activeLang === "zh" ? "这一天没有已记录的新闻。" : "No news recorded for this date.");
+  renderArticleGroup(els.paperList, paperItems, activeLang === "zh" ? "无" : "None");
+  renderArticleGroup(els.newsList, newsItems, activeLang === "zh" ? "无" : "None");
 }
 
 function articleMatchesFocus(article) {
@@ -1870,48 +1998,6 @@ function renderStaticLists() {
     .join("");
 }
 
-function renderPrompt() {
-  const date = els.selectedDate.value || todayISO();
-  const dayArticles = sortArticles(articles.filter((item) => item.date === date));
-  const keywordLines = keywordGroups.map((group) => `${group.category}：${group.keywords.join("，")}`).join("\n");
-  const articleLines = dayArticles
-    .map((item, index) => `${index + 1}. ${item.title}
-来源：${item.source}
-记录日期：${item.date}
-发表日期：${item.published || "未标注"}
-识别码：${item.identifier || "无"}
-证据类型：${evidenceLabel(item.evidence)}
-方向：${item.topic}
-优先级：${priorityLabel(item.priority)}
-关键词：${(item.keywords.length ? item.keywords : inferKeywords(item)).join("，")}
-重要结果：${item.result || "待填写"}
-意义：${item.significance || "待填写"}
-笔记：${item.notes || "待总结"}
-原文或检索入口：${articleLinks(item).map((link) => `${link.label} ${link.url}`).join("；")}`)
-    .join("\n\n");
-
-  els.promptBox.value = `请你作为脑机接口和人工智能交叉方向的研究助理，基于下面的文章池生成 ${date} 的中文日报。
-
-重点关注 NeuroAI / BCI / brain-inspired AI 相关方向：
-${keywordLines}
-
-输出结构：
-1. 一句话总览
-2. 今日最重要的 3 条
-3. 技术趋势：模型、数据、硬件、临床或产业
-4. 每篇文章：关键词、重要结果、意义、待读问题
-5. 明天继续追踪的关键词
-
-判断标准：
-- 优先打开原文、DOI、arXiv 或 PMID；没有原文时使用检索入口，不要只凭标题判断
-- 区分论文证据、预印本、临床试验、公司宣传、监管进展和媒体转述
-- 对结论强度保持谨慎，明确哪些需要读原文验证
-- 把重要结果和研究意义放在最前面，关键词只作为辅助索引
-
-文章池：
-${articleLines || "这一天还没有文章。请先添加文章标题、链接和摘要。"} `;
-}
-
 function exportBrief() {
   const date = els.selectedDate.value || todayISO();
   const dayArticles = sortArticles(articles.filter((item) => item.date === date));
@@ -1929,23 +2015,12 @@ function exportBrief() {
   - 重要结果：${item.result || "待补充"}
   - 意义：${item.significance || "待补充"}
   - 笔记：${item.notes || "待补充"}${links ? `\n  - ${links}` : ""}`;
-    }),
-    "",
-    "## AI 摘要提示词",
-    "",
-    els.promptBox.value
+    })
   ].join("\n");
 
   navigator.clipboard.writeText(markdown).then(
     () => showToast("日报 Markdown 已复制"),
-    () => showToast("复制失败，请手动复制提示词区域")
-  );
-}
-
-function copyPrompt() {
-  navigator.clipboard.writeText(els.promptBox.value).then(
-    () => showToast("提示词已复制"),
-    () => showToast("复制失败，请手动复制")
+    () => showToast("复制失败，请稍后重试")
   );
 }
 

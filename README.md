@@ -13,6 +13,6 @@ Open `index.html` locally, or publish the repository with GitHub Pages.
 
 ## Daily updates
 
-The repository owner can use a Codex scheduled automation to research the last 24 hours, add only verified papers/news to `starterArticles()`, test the page, commit, and push to GitHub Pages.
+The repository owner can use a Codex scheduled automation to research the last 24 hours across AI, robotics, embodied AI, and BCI; add only verified papers/news to `starterArticles()`; test the page; commit; and push to GitHub Pages. A category with no reliable new paper or news should remain empty.
 
 For a separate copy, fork the repository and create the same automation in the fork. If an API-based updater is added later, keep `OPENAI_API_KEY` in a backend environment variable or GitHub Actions secret. Never put an API key in `index.html`, `app.js`, browser storage, or a public repository.

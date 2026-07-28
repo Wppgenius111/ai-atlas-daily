@@ -1582,6 +1582,14 @@ body.dark .favorite-item {
   font-size: 0.9rem;
 }
 
+.daily-column .empty {
+  min-height: 56px;
+  padding: 16px 2px;
+  border: 0;
+  color: var(--muted);
+  text-align: left;
+}
+
 .source-group + .source-group {
   padding-top: 6px;
 }
@@ -1611,10 +1619,42 @@ body.dark .favorite-item {
   white-space: nowrap;
 }
 
-.prompt-box {
-  min-height: 260px;
-  font-size: 0.9rem;
-  line-height: 1.55;
+.manual-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.manual-list li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.manual-list li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.manual-list li > span {
+  color: var(--magenta);
+  font-size: 0.72rem;
+  font-weight: 820;
+}
+
+.manual-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.manual-list strong {
+  color: var(--text);
 }
 
 .empty {
