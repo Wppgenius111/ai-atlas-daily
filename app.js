@@ -1300,30 +1300,25 @@ function renderArchive() {
 function renderBrief() {
   const date = els.briefDate.value || todayISO();
   const dayArticles = sortArticles(articles.filter((item) => item.date === date));
-  const highPriority = dayArticles.filter((item) => item.priority === "high");
-  const topics = countBy(dayArticles, "topic");
+  const papers = dayArticles.filter(isAcademicArticle);
+  const news = dayArticles.filter((item) => !isAcademicArticle(item));
 
   if (!dayArticles.length) {
-    els.briefOutput.innerHTML = '<div class="empty">这一天还没有文章。添加几条后，这里会自动生成简报骨架。</div>';
+    els.briefOutput.innerHTML = '<div class="empty">今天还没有更新。添加论文或新闻后，这里只生成短简报。</div>';
     return;
   }
 
-  const lead = highPriority[0] || dayArticles[0];
-  const topicLine = Object.entries(topics)
-    .map(([topic, count]) => `${topic} ${count} 篇`)
-    .join("；");
-
   els.briefOutput.innerHTML = `
-    <article class="brief-card">
-      <h3>本日判断</h3>
-      <p>${formatFullDate(date)} 收集 ${dayArticles.length} 条，最值得先读的是《${escapeHTML(lead.title)}》。方向分布：${escapeHTML(topicLine)}。</p>
+    <article class="brief-card brief-card--compact">
+      <h3>Papers</h3>
+      ${papers.length ? papers.slice(0, 2).map(renderBriefItem).join("") : "<p>今日没有已验证的新论文；不要用旧论文硬凑日报。</p>"}
     </article>
-    <article class="brief-card">
-      <h3>重要结果与意义</h3>
-      ${highPriority.length ? highPriority.map(renderBriefItem).join("") : "<p>暂无高优先级条目。</p>"}
+    <article class="brief-card brief-card--compact">
+      <h3>News</h3>
+      ${news.length ? news.slice(0, 3).map(renderBriefItem).join("") : "<p>今日没有需要记录的产业/政策消息。</p>"}
     </article>
-    <article class="brief-card">
-      <h3>后续动作</h3>
+    <article class="brief-card brief-card--compact">
+      <h3>Next</h3>
       <p>${buildActionLine(dayArticles)}</p>
     </article>
   `;
@@ -1331,9 +1326,16 @@ function renderBrief() {
 
 function renderBriefItem(article) {
   const primary = primaryArticleUrl(article);
-  const label = primary && primary.includes("semanticscholar.org/search") ? "检索入口" : "原文";
+  const label = primary && primary.includes("semanticscholar.org/search") ? "检索" : isAcademicArticle(article) ? "原文" : "来源";
   const linkText = primary ? ` <a href="${escapeAttribute(primary)}" target="_blank" rel="noreferrer">${label}</a>` : "";
-  return `<p><strong>${escapeHTML(article.title)}</strong>${linkText}：${escapeHTML(article.result || "需要补充重要结果。")} ${escapeHTML(article.significance || "")}</p>`;
+  return `<p><strong>${escapeHTML(article.title)}</strong>${linkText}：${escapeHTML(briefOneLine(article))}</p>`;
+}
+
+function briefOneLine(article) {
+  const text = isAcademicArticle(article)
+    ? article.result || article.significance || "需要读原文后补充核心发现。"
+    : article.significance || article.result || "简单工具/产业消息，记录来源即可。";
+  return compactText(text, isAcademicArticle(article) ? 92 : 64);
 }
 
 function renderArticles() {
@@ -1506,9 +1508,13 @@ function renderTimelineButton(item) {
 
 function eventSubtitle(item) {
   const text = item.significance || item.impact || item.result || "";
-  const normalized = text.replace(/\s+/g, " ").trim();
-  if (normalized.length <= 64) return normalized;
-  return `${normalized.slice(0, 64)}...`;
+  return compactText(text, 64);
+}
+
+function compactText(value, limit = 72) {
+  const normalized = String(value).replace(/\s+/g, " ").trim();
+  if (normalized.length <= limit) return normalized;
+  return `${normalized.slice(0, limit)}...`;
 }
 
 function renderTimelineDetail(item) {
@@ -2016,10 +2022,17 @@ function importanceLabel(importance = "normal") {
 }
 
 function buildActionLine(items) {
+  const papers = items.filter(isAcademicArticle);
+  const news = items.filter((item) => !isAcademicArticle(item));
+
+  if (!papers.length && news.length) {
+    return "今日只有新闻/工具动态：保留来源，确认是否影响你的工作流；没有必要写成长篇研究摘要。";
+  }
+
   const needsOriginal = items.filter((item) => item.priority === "high").length;
   const missingLinks = items.filter((item) => !primaryArticleUrl(item)).length;
   const topics = Object.keys(countBy(items, "topic")).slice(0, 3).join("、");
-  return `先读 ${needsOriginal || 1} 条高优先级原文；${missingLinks ? `为 ${missingLinks} 条补齐 DOI、arXiv 或 PMID；` : ""}把 ${topics || "核心方向"} 的方法、数据集和实验设置补齐；对产业新闻单独标记证据等级。`;
+  return `先读 ${Math.min(needsOriginal || papers.length || 1, 2)} 条论文原文；${missingLinks ? `为 ${missingLinks} 条补齐 DOI、arXiv 或 PMID；` : ""}只记录 ${topics || "核心方向"} 的方法、数据和结论强度。`;
 }
 
 function articleLinks(article) {

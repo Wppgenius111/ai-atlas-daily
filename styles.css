@@ -793,6 +793,27 @@ label span {
   padding: 15px;
 }
 
+.brief-card--compact {
+  padding: 13px 14px;
+}
+
+.brief-card--compact h3 {
+  margin-bottom: 6px;
+  color: var(--graphite);
+  font-size: 0.88rem;
+}
+
+.brief-card--compact p {
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.brief-card--compact p + p {
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid var(--line);
+}
+
 .brief-card p,
 .article-card p,
 .source-item p,
