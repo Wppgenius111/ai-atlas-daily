@@ -1,36 +1,60 @@
 const sourceGroups = [
   {
-    category: "NeuroAI research",
+    category: "AI Models",
     items: [
       {
-        name: "Computational neuroscience",
-        cadence: "Weekly",
-        url: "https://www.semanticscholar.org/search?q=computational%20neuroscience%20brain%20energy%20neural%20coding&sort=relevance",
-        note: "跟踪神经编码、动力学、脑能量和多尺度神经计算。"
+        name: "OpenAI",
+        cadence: "Daily",
+        url: "https://openai.com/news/",
+        note: "模型、Codex、ChatGPT、API、研究和产品发布，以官方说法为准。"
       },
       {
-        name: "Brain-inspired AI",
-        cadence: "Weekly",
-        url: "https://www.semanticscholar.org/search?q=brain-inspired%20AI%20neuromorphic%20computing%20spiking%20neural%20networks&sort=relevance",
-        note: "关注脉冲神经网络、神经形态计算、低功耗智能和脑启发学习。"
+        name: "Anthropic",
+        cadence: "Daily",
+        url: "https://www.anthropic.com/news",
+        note: "Claude、AI safety、模型政策和开放权重立场。"
       },
       {
-        name: "BCI + AI",
-        cadence: "Weekly",
-        url: "https://www.semanticscholar.org/search?q=brain-computer%20interface%20artificial%20intelligence%20neural%20decoding&sort=relevance",
-        note: "跟踪神经信号解码、闭环控制、侵入式/非侵入式 BCI 和 AI copilot。"
+        name: "Google DeepMind",
+        cadence: "Daily",
+        url: "https://deepmind.google/blog/",
+        note: "Gemini、科学 AI、机器人基础模型和安全研究。"
       },
       {
-        name: "Embodied AI",
+        name: "Meta AI",
         cadence: "Weekly",
-        url: "https://www.semanticscholar.org/search?q=embodied%20AI%20robot%20learning%20world%20model%20foundation%20model&sort=relevance",
-        note: "跟踪具身智能、机器人学习、世界模型、视觉-语言-动作模型和仿真到真实迁移。"
+        url: "https://ai.meta.com/blog/",
+        note: "Llama、开放模型、多模态和个人 AI 产品。"
+      },
+      {
+        name: "Qwen / Alibaba Cloud",
+        cadence: "Weekly",
+        url: "https://qwenlm.github.io/",
+        note: "国产开源模型、推理模型、多模态和 Agent 工具链。"
+      },
+      {
+        name: "DeepSeek",
+        cadence: "Weekly",
+        url: "https://api-docs.deepseek.com/news",
+        note: "国产推理模型、开源策略、API 价格和工程效率。"
+      },
+      {
+        name: "Kimi / Moonshot AI",
+        cadence: "Weekly",
+        url: "https://www.moonshot.cn/",
+        note: "长上下文、Agent、开权重模型和中国 AI 产品动态。"
       }
     ]
   },
   {
-    category: "Robotics",
+    category: "Embodied AI / Robotics",
     items: [
+      {
+        name: "Unitree",
+        cadence: "Daily",
+        url: "https://www.unitree.com/news/",
+        note: "宇树人形与四足机器人新品、演示、赛事和产品信息。"
+      },
       {
         name: "IEEE Spectrum Robotics",
         cadence: "Daily",
@@ -38,45 +62,175 @@ const sourceGroups = [
         note: "机器人研究、产品、工程限制和真实部署进展。"
       },
       {
-        name: "Google DeepMind Robotics",
-        cadence: "Weekly",
-        url: "https://deepmind.google/discover/blog/?topics=robotics",
-        note: "跟踪机器人基础模型、视觉-语言-动作模型和通用控制。"
-      },
-      {
         name: "NVIDIA Robotics",
         cadence: "Weekly",
         url: "https://blogs.nvidia.com/blog/category/robotics/",
-        note: "跟踪仿真、世界模型、机器人训练平台和边缘算力。"
+        note: "Physical AI、仿真、机器人训练平台、边缘算力和机器人基础设施。"
       },
       {
-        name: "Unitree",
+        name: "Google DeepMind Robotics",
         cadence: "Weekly",
-        url: "https://www.unitree.com/",
-        note: "核验宇树人形与四足机器人发布、演示和产品信息。"
+        url: "https://deepmind.google/discover/blog/?topics=robotics",
+        note: "机器人基础模型、视觉-语言-动作模型、通用控制和数据引擎。"
+      },
+      {
+        name: "Tesla Optimus",
+        cadence: "Weekly",
+        url: "https://www.tesla.com/AI",
+        note: "人形机器人、自动驾驶栈迁移和端到端真实世界数据。"
+      },
+      {
+        name: "Figure AI",
+        cadence: "Weekly",
+        url: "https://www.figure.ai/news",
+        note: "人形机器人商业化、工厂部署和通用操作能力。"
+      },
+      {
+        name: "Agility Robotics",
+        cadence: "Weekly",
+        url: "https://agilityrobotics.com/news",
+        note: "仓储、物流和人形机器人真实部署。"
+      },
+      {
+        name: "Boston Dynamics",
+        cadence: "Weekly",
+        url: "https://bostondynamics.com/blog/",
+        note: "运动控制、移动操作和工程级机器人系统。"
       }
     ]
   },
   {
-    category: "AI pulse",
+    category: "BCI / Neurotech",
     items: [
       {
-        name: "X: OpenAI Codex / rate limits",
+        name: "Neuralink",
         cadence: "Daily",
-        url: "https://x.com/search?q=%28OpenAI%20Codex%20OR%20rate%20limits%20OR%20quota%29&src=typed_query&f=live",
-        note: "用作热点雷达，看到额度或模型传闻后回到官方页面核验。"
+        url: "https://neuralink.com/blog/",
+        note: "侵入式 BCI、人体试验、植入设备和解码系统。"
       },
       {
-        name: "X: AI / Robotics live",
-        cadence: "Daily",
-        url: "https://x.com/search?q=%28AI%20agents%20OR%20humanoid%20robots%20OR%20embodied%20AI%20OR%20brain-computer%20interface%29&src=typed_query&f=live",
-        note: "发现 AI、机器人、具身智能和脑机接口热点，再回到原始来源核验。"
+        name: "Synchron",
+        cadence: "Weekly",
+        url: "https://synchron.com/news",
+        note: "血管介入式 BCI、临床研究和远程设备控制。"
       },
       {
-        name: "OpenAI Release Notes",
+        name: "Precision Neuroscience",
+        cadence: "Weekly",
+        url: "https://precisionneuro.io/news/",
+        note: "薄膜电极、皮层接口、手术路径和 FDA 进展。"
+      },
+      {
+        name: "Paradromics",
+        cadence: "Weekly",
+        url: "https://paradromics.com/news/",
+        note: "高通量植入式 BCI、Connexus 平台和临床可行性研究。"
+      },
+      {
+        name: "ClinicalTrials.gov",
+        cadence: "Weekly",
+        url: "https://clinicaltrials.gov/search?term=brain-computer%20interface",
+        note: "人体试验、招募状态、终点指标和机构。"
+      },
+      {
+        name: "Nature Medicine",
+        cadence: "Weekly",
+        url: "https://www.nature.com/nm/",
+        note: "神经假体、临床 BCI、神经调控和转化医学证据。"
+      },
+      {
+        name: "Journal of Neural Engineering",
+        cadence: "Weekly",
+        url: "https://iopscience.iop.org/journal/1741-2552",
+        note: "神经工程、闭环刺激、长期稳定性和神经信号处理。"
+      }
+    ]
+  },
+  {
+    category: "China AI Industry",
+    items: [
+      {
+        name: "机器之心",
         cadence: "Daily",
-        url: "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-        note: "核验 Codex、ChatGPT、模型和产品能力的官方变化。"
+        url: "https://www.jiqizhixin.com/",
+        note: "AI 论文、模型、机器人和国内技术社区热点。"
+      },
+      {
+        name: "量子位",
+        cadence: "Daily",
+        url: "https://www.qbitai.com/",
+        note: "AI 产品、国产模型、机器人和产业快讯。"
+      },
+      {
+        name: "智东西",
+        cadence: "Daily",
+        url: "https://www.zhidx.com/",
+        note: "AIoT、机器人、芯片、智能汽车和产业落地。"
+      },
+      {
+        name: "新智元",
+        cadence: "Daily",
+        url: "https://www.aiera.com.cn/",
+        note: "AI 热点、模型发布和社交平台扩散信号，需二次核验。"
+      },
+      {
+        name: "DeepTech",
+        cadence: "Weekly",
+        url: "https://www.deeptechchina.com/",
+        note: "AI for Science、脑机接口、生物技术和科研产业化。"
+      },
+      {
+        name: "高工机器人",
+        cadence: "Weekly",
+        url: "https://www.gg-robot.com/",
+        note: "机器人产业链、订单、工厂场景和人形机器人商业化。"
+      },
+      {
+        name: "中国政府网 / 新职业",
+        cadence: "Weekly",
+        url: "https://english.www.gov.cn/news/",
+        note: "AI 新职业、人才政策、产业规划和就业信号。"
+      }
+    ]
+  },
+  {
+    category: "Policy / Society",
+    items: [
+      {
+        name: "MIIT",
+        cadence: "Weekly",
+        url: "https://www.miit.gov.cn/",
+        note: "中国人形机器人、具身智能、工业 AI 和标准政策。"
+      },
+      {
+        name: "CAC",
+        cadence: "Weekly",
+        url: "https://www.cac.gov.cn/",
+        note: "AI 治理、生成式 AI、数据安全和算法监管。"
+      },
+      {
+        name: "European Commission AI",
+        cadence: "Weekly",
+        url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        note: "EU AI Act、透明度义务、合规和风险分类。"
+      },
+      {
+        name: "White House AI",
+        cadence: "Weekly",
+        url: "https://www.whitehouse.gov/briefing-room/",
+        note: "美国 AI 政策、基础设施、出口管制和国家战略。"
+      },
+      {
+        name: "MIT Technology Review",
+        cadence: "Weekly",
+        url: "https://www.technologyreview.com/topic/artificial-intelligence/",
+        note: "AI 社会影响、产业评论、监管和长期技术判断。"
+      },
+      {
+        name: "The Verge AI",
+        cadence: "Daily",
+        url: "https://www.theverge.com/ai-artificial-intelligence",
+        note: "AI 产品、平台政策、公司动态和社会争议。"
       }
     ]
   },
@@ -84,10 +238,10 @@ const sourceGroups = [
     category: "Papers",
     items: [
       {
-        name: "arXiv 综合检索",
+        name: "arXiv: AI + Robotics + BCI",
         cadence: "Daily",
-        url: "https://arxiv.org/search/?query=%22brain-computer+interface%22+%22artificial+intelligence%22&searchtype=all&source=header",
-        note: "预印本、模型方法、神经解码和跨被试泛化。"
+        url: "https://arxiv.org/search/?query=%28embodied+AI+OR+robot+learning+OR+brain-computer+interface+OR+neural+decoding%29&searchtype=all&source=header",
+        note: "预印本入口：只把当天高相关论文放进 Daily，没有就写无。"
       },
       {
         name: "PubMed / NCBI",
@@ -102,85 +256,39 @@ const sourceGroups = [
         note: "生命科学预印本，适合提前发现 BCI 与神经 AI 动向。"
       },
       {
+        name: "OpenReview",
+        cadence: "Weekly",
+        url: "https://openreview.net/search?term=embodied%20AI%20robot%20learning%20neural%20decoding",
+        note: "NeurIPS、ICLR、ICML 相关投稿、评审和新方法线索。"
+      },
+      {
         name: "Semantic Scholar",
-        cadence: "Daily",
-        url: "https://www.semanticscholar.org/search?q=brain-computer%20interface%20artificial%20intelligence&sort=relevance",
+        cadence: "Weekly",
+        url: "https://www.semanticscholar.org/search?q=brain-computer%20interface%20embodied%20AI%20robotics&sort=relevance",
         note: "补充被引、相关论文和作者网络。"
       }
     ]
   },
   {
-    category: "Journals",
+    category: "X / Social Radar",
     items: [
       {
-        name: "IEEE Xplore",
-        cadence: "Weekly",
-        url: "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=%22brain-computer%20interface%22%20%22artificial%20intelligence%22",
-        note: "脑机接口系统、信号处理、嵌入式和神经工程实现。"
-      },
-      {
-        name: "Journal of Neural Engineering",
-        cadence: "Weekly",
-        url: "https://iopscience.iop.org/journal/1741-2552",
-        note: "神经工程、神经假体、闭环刺激和长期稳定性。"
-      },
-      {
-        name: "Nature Portfolio",
-        cadence: "Weekly",
-        url: "https://www.nature.com/search?q=%22brain-computer%20interface%22%20%22artificial%20intelligence%22",
-        note: "高影响论文、新闻评论和综述。"
-      },
-      {
-        name: "ScienceDirect",
-        cadence: "Weekly",
-        url: "https://www.sciencedirect.com/search?qs=%22brain-computer%20interface%22%20%22artificial%20intelligence%22",
-        note: "Elsevier 期刊中的神经科学、康复工程和综述。"
-      }
-    ]
-  },
-  {
-    category: "Community",
-    items: [
-      {
-        name: "OpenReview",
-        cadence: "Weekly",
-        url: "https://openreview.net/search?term=brain-computer%20interface%20neural%20decoding",
-        note: "NeurIPS、ICLR、ICML 相关投稿和评审线索。"
-      },
-      {
-        name: "BCI Society",
-        cadence: "Monthly",
-        url: "https://bcisociety.org/",
-        note: "BCI 专门社区、会议和研讨会。"
-      },
-      {
-        name: "Frontiers in Neuroscience",
-        cadence: "Weekly",
-        url: "https://www.frontiersin.org/journals/neuroscience",
-        note: "神经科学、计算神经和转化研究。"
-      }
-    ]
-  },
-  {
-    category: "Industry",
-    items: [
-      {
-        name: "ClinicalTrials.gov",
-        cadence: "Weekly",
-        url: "https://clinicaltrials.gov/search?term=brain-computer%20interface",
-        note: "人体试验、招募状态、终点指标和机构。"
-      },
-      {
-        name: "FDA Medical Devices",
-        cadence: "Weekly",
-        url: "https://www.fda.gov/medical-devices",
-        note: "医疗器械监管、批准、召回和安全沟通。"
-      },
-      {
-        name: "公司新闻",
+        name: "X: AI Models",
         cadence: "Daily",
-        url: "https://neuralink.com/blog/",
-        note: "Neuralink、Synchron、Precision、Paradromics 等公司动态。"
+        url: "https://x.com/search?q=%28OpenAI%20OR%20Anthropic%20OR%20DeepMind%20OR%20DeepSeek%20OR%20Qwen%20OR%20Kimi%29%20%28release%20OR%20model%20OR%20API%20OR%20open-weight%29&src=typed_query&f=live",
+        note: "只作为热点雷达，写入新闻前必须回到官方页面或可信报道核验。"
+      },
+      {
+        name: "X: Robotics / Embodied AI",
+        cadence: "Daily",
+        url: "https://x.com/search?q=%28Unitree%20OR%20Figure%20AI%20OR%20Optimus%20OR%20humanoid%20robot%20OR%20embodied%20AI%29&src=typed_query&f=live",
+        note: "追踪机器人演示、产品发布和真实部署线索。"
+      },
+      {
+        name: "X: BCI / Neurotech",
+        cadence: "Daily",
+        url: "https://x.com/search?q=%28Neuralink%20OR%20Synchron%20OR%20Paradromics%20OR%20Precision%20Neuroscience%20OR%20BCI%29&src=typed_query&f=live",
+        note: "追踪脑机接口公司和临床进展线索。"
       }
     ]
   }
@@ -189,6 +297,61 @@ const sourceGroups = [
 const sources = sourceGroups.flatMap((group) => group.items);
 
 const aiPulseItems = [
+  {
+    id: "pulse-ai-models-official",
+    title: "AI Models Radar",
+    source: "Official blogs + X",
+    date: "2026-07-28",
+    url: "https://x.com/search?q=%28OpenAI%20OR%20Anthropic%20OR%20DeepMind%20OR%20DeepSeek%20OR%20Qwen%20OR%20Kimi%29%20%28release%20OR%20model%20OR%20API%20OR%20open-weight%29&src=typed_query&f=live",
+    confidence: "待核验雷达",
+    keywords: ["OpenAI", "Anthropic", "DeepMind", "DeepSeek", "Qwen", "Kimi"],
+    result: "每天先扫模型公司官方博客和 X 热点，再回到官方 release notes、模型卡或 API 文档确认。",
+    significance: "用于发现新模型、价格变化、额度变化、开源权重、Agent 工具和多模态能力。"
+  },
+  {
+    id: "pulse-robotics-embodied",
+    title: "Robotics Radar",
+    source: "Unitree / IEEE / NVIDIA / X",
+    date: "2026-07-28",
+    url: "https://x.com/search?q=%28Unitree%20OR%20Figure%20AI%20OR%20Optimus%20OR%20humanoid%20robot%20OR%20embodied%20AI%29&src=typed_query&f=live",
+    confidence: "待核验雷达",
+    keywords: ["humanoid robots", "embodied AI", "Unitree", "Figure AI", "Optimus"],
+    result: "重点发现机器人新品、赛事、工厂部署、实景测试和 VLA/世界模型相关进展。",
+    significance: "机器人新闻容易被演示视频带偏，写入 Daily 前要确认是否有真实部署、连续运行、任务成功率或官方公告。"
+  },
+  {
+    id: "pulse-bci-neurotech",
+    title: "BCI Radar",
+    source: "Company news + clinical sources",
+    date: "2026-07-28",
+    url: "https://x.com/search?q=%28Neuralink%20OR%20Synchron%20OR%20Paradromics%20OR%20Precision%20Neuroscience%20OR%20BCI%29&src=typed_query&f=live",
+    confidence: "待核验雷达",
+    keywords: ["Neuralink", "Synchron", "Paradromics", "Precision Neuroscience", "BCI"],
+    result: "追踪人体植入、FDA/CE 进展、语音解码、视觉假体和长期稳定性。",
+    significance: "BCI 最重要的不是单次演示，而是安全性、长期稳定性、真实生活可用性和临床证据。"
+  },
+  {
+    id: "pulse-china-ai-industry",
+    title: "China AI Radar",
+    source: "机器之心 / 量子位 / 智东西",
+    date: "2026-07-28",
+    url: "https://www.jiqizhixin.com/",
+    confidence: "媒体入口",
+    keywords: ["China AI", "国产模型", "机器人", "具身智能"],
+    result: "用中文媒体发现国产模型、机器人公司、融资、招聘和产业落地线索。",
+    significance: "中文产业媒体覆盖快，但每条重要新闻要回到公司公告、政府文件、论文或招聘 JD 核验。"
+  },
+  {
+    id: "pulse-policy-society",
+    title: "Policy Radar",
+    source: "EU / US / China",
+    date: "2026-07-28",
+    url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+    confidence: "官方优先",
+    keywords: ["AI policy", "AI Act", "MIIT", "CAC", "jobs"],
+    result: "关注 AI Act、中国监管、人形机器人政策、新职业和美国 AI 基础设施政策。",
+    significance: "政策决定哪些应用能落地、哪些岗位会变多，也影响医疗 BCI、机器人和模型服务的合规边界。"
+  },
   {
     id: "openai-codex-plan-limits",
     title: "Codex Access",
@@ -1179,6 +1342,54 @@ function starterArticles() {
       notes: "来源：OpenAI Help，页面于 2026-07-28 更新。"
     },
     {
+      id: "seed-openai-work-ai-2026-07-28",
+      title: "OpenAI: AI is changing work",
+      url: "https://openai.com/news/company-announcements/",
+      identifier: "",
+      source: "OpenAI News",
+      date: "2026-07-28",
+      published: "2026-07-27",
+      topic: "AI",
+      priority: "high",
+      evidence: "industry",
+      keywords: ["OpenAI", "AI adoption", "future of work", "agents"],
+      result: "OpenAI 新闻页在 2026-07-27 发布关于 AI 如何扩展工作能力的文章，并把企业采用、agent 工作流和生产力变化放在同一条线上。",
+      significance: "这类官方内容不是单纯模型发布，而是在说明 AI 公司正在把产品叙事从“聊天”转向“完成工作”。",
+      notes: "适合观察就业信号：AI literacy、agent workflow、数据和业务流程理解会变成基础能力。"
+    },
+    {
+      id: "seed-gemini-cyber-2026-07-21",
+      title: "Gemini 3.5 Flash Cyber",
+      url: "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/",
+      identifier: "",
+      source: "Google DeepMind",
+      date: "2026-07-28",
+      published: "2026-07-21",
+      topic: "AI",
+      priority: "high",
+      evidence: "industry",
+      keywords: ["Gemini", "cybersecurity", "AI agents", "security"],
+      result: "Google DeepMind 发布 Gemini 3.5 Flash Cyber，定位为轻量级网络安全模型，用于发现、验证和修复漏洞。",
+      significance: "AI agent 的一个重要落地场景正在从代码生成扩展到安全防御；这也提示学生不要只学写代码，还要学会验证和修补系统问题。",
+      notes: "来源为官方博客；具体能力仍需看独立评测和真实企业使用结果。"
+    },
+    {
+      id: "seed-anthropic-claude-code-2026-07-06",
+      title: "Claude Code story",
+      url: "https://www.anthropic.com/news",
+      identifier: "",
+      source: "Anthropic News",
+      date: "2026-07-28",
+      published: "2026-07-06",
+      topic: "AI 工具动态",
+      priority: "medium",
+      evidence: "industry",
+      keywords: ["Claude Code", "coding agent", "AI workflow", "developer tools"],
+      result: "Anthropic 新闻页列出 The Making of Claude Code，讲述 Claude Code 从内部 CLI 走向 coding agent 产品的过程。",
+      significance: "这说明 coding agent 已经成为大模型公司的核心入口之一，未来科研、工程和产品原型都会越来越依赖 agent 协作。",
+      notes: "适合和 OpenAI Codex、Google Antigravity 等工具一起比较：看谁更适合科研项目、代码库维护和自动化实验。"
+    },
+    {
       id: "seed-open-weight-shift-2026-07-28",
       title: "Chinese open-weight models reshape AI deployment choices",
       url: "https://www.theverge.com/ai-artificial-intelligence/971444/how-chinese-open-weight-ai-models-impact-us-companies",
@@ -1195,6 +1406,54 @@ function starterArticles() {
       notes: "媒体报道；涉及的模型能力和市场份额仍需结合原始模型报告与企业披露核验。"
     },
     {
+      id: "seed-china-new-ai-jobs-2026-07-03",
+      title: "China adds AI agent and embodied robot jobs",
+      url: "https://english.www.gov.cn/news/202607/03/content_WS6a4762fbc6d00ca5f9a0c021.html",
+      identifier: "",
+      source: "Xinhua / State Council",
+      date: "2026-07-28",
+      published: "2026-07-03",
+      topic: "AI 就业",
+      priority: "high",
+      evidence: "policy",
+      keywords: ["AI jobs", "AI agent developers", "embodied intelligence", "robot technicians"],
+      result: "中国拟认定 12 个新职业，其中包括具身智能机器人技术人员，并在既有职业下新增人工智能体开发员等工种。",
+      significance: "这不是概念宣传，而是就业分类开始承认 AI agent 与具身智能岗位；对学生选课、项目和实习方向有直接参考价值。",
+      notes: "来源为新华社英文稿；职业最终进入分类后，会进一步影响培训、认证和招聘描述。"
+    },
+    {
+      id: "seed-miit-embodied-training-2026-06-08",
+      title: "Humanoid robots move from demos to work",
+      url: "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_f291ccd3da4c47ce95741de63cc088e6.html",
+      identifier: "",
+      source: "MIIT / SASAC",
+      date: "2026-07-28",
+      published: "2026-06-08",
+      topic: "具身智能",
+      priority: "high",
+      evidence: "policy",
+      keywords: ["humanoid robots", "embodied AI", "real-world training", "robot deployment"],
+      result: "工信部和国资委联合开展 2026 年度人形机器人与具身智能实景实训专项行动，目标是在代表性场景中完成应用验证和常态部署。",
+      significance: "国内机器人竞争开始从发布会演示转向真实场景训练、真机数据积累和稳定作业。",
+      notes: "关注工业、服务、特种三类场景；这会带动机器人测试、控制、仿真、数据采集和场景工程岗位。"
+    },
+    {
+      id: "seed-china-ai-token-scale-2026-06-24",
+      title: "China reports large-scale AI use",
+      url: "https://english.www.gov.cn/news/202606/24/content_WS6a3b8039c6d00ca5f9a0bc60.html",
+      identifier: "",
+      source: "Xinhua / State Council",
+      date: "2026-07-28",
+      published: "2026-06-24",
+      topic: "AI",
+      priority: "medium",
+      evidence: "media",
+      keywords: ["China AI", "token consumption", "commercial deployment", "embodied AI"],
+      result: "新华社报道中国总理称中国大语言模型日均 token 消耗量到 5 月底已超过 100 万亿，具身智能开始走向规模化商业部署。",
+      significance: "token 消耗量是判断 AI 是否真正被使用的产业指标之一；它比单次模型榜单更接近真实需求。",
+      notes: "后续需要看企业披露、云厂商数据和行业应用案例来交叉验证。"
+    },
+    {
       id: "seed-eu-ai-transparency-2026-07-28",
       title: "EU publishes AI transparency guidelines",
       url: "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
@@ -1209,6 +1468,54 @@ function starterArticles() {
       result: "欧盟委员会发布 AI Act 第 50 条透明度义务指南，相关义务自 2026 年 8 月 2 日起适用。",
       significance: "提供者和部署者需在特定场景告知用户正在与 AI 交互，并对 AI 生成或篡改内容进行可识别标记。",
       notes: "官方页面发布于 2026-07-20，最后更新于 2026-07-27。"
+    },
+    {
+      id: "seed-science-corp-prima-2026-07-23",
+      title: "Science Corp PRIMA gets EU approval",
+      url: "https://www.ft.com/content/a789fa81-6c39-48a1-9df3-33d67ce7a5ac",
+      identifier: "",
+      source: "Financial Times",
+      date: "2026-07-28",
+      published: "2026-07-23",
+      topic: "脑机接口",
+      priority: "high",
+      evidence: "media",
+      keywords: ["Science Corp", "BCI", "bionic eye", "CE mark", "neurotechnology"],
+      result: "媒体报道 Science Corp 的 PRIMA 视觉假体获得欧洲 CE 标志批准，可在欧盟多国商业使用。",
+      significance: "BCI/神经科技并不只限于控制光标；视觉恢复、神经假体和医疗器械审批会成为更现实的转化路线。",
+      notes: "商业化与临床效果需要回看 CE 文件、临床试验数据和公司后续披露。"
+    },
+    {
+      id: "seed-paradromics-first-implant-2026-06-17",
+      title: "Paradromics first human Connexus implant",
+      url: "https://paradromics.com/news/paradromics-completes-first-human-brain-computer-interface-bci-implantation/",
+      identifier: "",
+      source: "Paradromics",
+      date: "2026-07-28",
+      published: "2026-06-17",
+      topic: "脑机接口",
+      priority: "high",
+      evidence: "trial",
+      keywords: ["Paradromics", "Connexus", "implantable BCI", "speech restoration"],
+      result: "Paradromics 宣布完成 FDA 批准的 Connect-One 早期可行性研究中的首例 Connexus BCI 人体植入。",
+      significance: "高通量植入式 BCI 正进入临床可行性验证阶段，关键问题会从演示能力转向长期安全、稳定解码和真实沟通收益。",
+      notes: "公司公告需与 ClinicalTrials.gov、医院公告和后续论文结果一起看。"
+    },
+    {
+      id: "seed-nih-home-speech-bci-2026-07-14",
+      title: "Speech BCI works at home",
+      url: "https://www.nih.gov/news-events/nih-research-matters/brain-computer-device-helps-man-speak",
+      identifier: "",
+      source: "NIH",
+      date: "2026-07-28",
+      published: "2026-07-14",
+      topic: "脑机接口",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["speech BCI", "ALS", "home use", "neural decoding"],
+      result: "NIH 介绍一项 Nature Medicine 研究：一名因 ALS 难以说话的受试者在家中使用 BCI 系统进行语音沟通。",
+      significance: "BCI 从实验室走向家庭场景是重要门槛；对研究者来说，稳定性、照护者协作和真实生活可用性比单次准确率更关键。",
+      notes: "这条放入 Daily 是因为它连接论文、临床试验和实际生活场景，值得后续精读原文。"
     },
     {
       id: "seed-bci-neuroprosthesis-2026-07-16",
