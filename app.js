@@ -296,96 +296,161 @@ const sourceGroups = [
 
 const sources = sourceGroups.flatMap((group) => group.items);
 
-const aiPulseItems = [
+const aiPulseGroups = [
   {
-    id: "pulse-ai-models-official",
-    title: "AI Models Radar",
-    source: "Official blogs + X",
-    date: "2026-07-28",
-    url: "https://x.com/search?q=%28OpenAI%20OR%20Anthropic%20OR%20DeepMind%20OR%20DeepSeek%20OR%20Qwen%20OR%20Kimi%29%20%28release%20OR%20model%20OR%20API%20OR%20open-weight%29&src=typed_query&f=live",
-    confidence: "待核验雷达",
-    keywords: ["OpenAI", "Anthropic", "DeepMind", "DeepSeek", "Qwen", "Kimi"],
-    result: "每天先扫模型公司官方博客和 X 热点，再回到官方 release notes、模型卡或 API 文档确认。",
-    significance: "用于发现新模型、价格变化、额度变化、开源权重、Agent 工具和多模态能力。"
+    title: "AI Models",
+    hint: "模型、Agent、额度、API",
+    items: [
+      {
+        id: "pulse-openai-codex-access",
+        title: "Codex availability",
+        source: "OpenAI Help",
+        date: "2026-07-28",
+        url: "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+        confidence: "官方",
+        keywords: ["Codex", "OpenAI", "developer tools"],
+        result: "OpenAI 帮助页称 Codex 覆盖多个 ChatGPT 计划，具体上限按账户和计划显示。",
+        significance: "适合关注 AI coding agent 是否已经变成日常科研/开发基础工具。"
+      },
+      {
+        id: "pulse-deepmind-cyber",
+        title: "Gemini for cyber",
+        source: "Google DeepMind",
+        date: "2026-07-21",
+        url: "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/",
+        confidence: "官方",
+        keywords: ["Gemini", "cybersecurity", "AI agents"],
+        result: "DeepMind 把 Gemini 3.5 Flash Cyber 定位为网络安全场景的轻量模型。",
+        significance: "说明 Agent 落地不只在写代码，也会进入安全检测和系统修复。"
+      },
+      {
+        id: "pulse-anthropic-code",
+        title: "Claude Code",
+        source: "Anthropic",
+        date: "2026-07-06",
+        url: "https://www.anthropic.com/news",
+        confidence: "官方",
+        keywords: ["Claude Code", "coding agent", "workflow"],
+        result: "Anthropic 把 Claude Code 的产品故事放在新闻页，强调 coding agent 工作流。",
+        significance: "值得和 Codex 对比，判断科研代码、自动实验和项目维护该用哪类工具。"
+      }
+    ]
   },
   {
-    id: "pulse-robotics-embodied",
-    title: "Robotics Radar",
-    source: "Unitree / IEEE / NVIDIA / X",
-    date: "2026-07-28",
-    url: "https://x.com/search?q=%28Unitree%20OR%20Figure%20AI%20OR%20Optimus%20OR%20humanoid%20robot%20OR%20embodied%20AI%29&src=typed_query&f=live",
-    confidence: "待核验雷达",
-    keywords: ["humanoid robots", "embodied AI", "Unitree", "Figure AI", "Optimus"],
-    result: "重点发现机器人新品、赛事、工厂部署、实景测试和 VLA/世界模型相关进展。",
-    significance: "机器人新闻容易被演示视频带偏，写入 Daily 前要确认是否有真实部署、连续运行、任务成功率或官方公告。"
+    title: "Leaders",
+    hint: "头部人物/团队在说什么",
+    items: [
+      {
+        id: "pulse-altman-openai-work",
+        title: "OpenAI work narrative",
+        source: "OpenAI News",
+        date: "2026-07-27",
+        url: "https://openai.com/news/company-announcements/",
+        confidence: "官方",
+        keywords: ["future of work", "AI adoption", "agents"],
+        result: "OpenAI 官方叙事正在把 AI 从聊天工具推向工作能力扩展。",
+        significance: "看 leader 和公司叙事时，重点观察它如何改变岗位能力要求。"
+      },
+      {
+        id: "pulse-deepmind-blog-watch",
+        title: "DeepMind direction",
+        source: "Google DeepMind Blog",
+        date: "2026-07-28",
+        url: "https://deepmind.google/blog/",
+        confidence: "官方入口",
+        keywords: ["Gemini", "robotics", "science AI"],
+        result: "DeepMind 官方博客持续覆盖 Gemini、科学 AI、安全和机器人。",
+        significance: "它适合作为“专业路线风向标”，比刷碎片化转发更稳定。"
+      }
+    ]
   },
   {
-    id: "pulse-bci-neurotech",
-    title: "BCI Radar",
-    source: "Company news + clinical sources",
-    date: "2026-07-28",
-    url: "https://x.com/search?q=%28Neuralink%20OR%20Synchron%20OR%20Paradromics%20OR%20Precision%20Neuroscience%20OR%20BCI%29&src=typed_query&f=live",
-    confidence: "待核验雷达",
-    keywords: ["Neuralink", "Synchron", "Paradromics", "Precision Neuroscience", "BCI"],
-    result: "追踪人体植入、FDA/CE 进展、语音解码、视觉假体和长期稳定性。",
-    significance: "BCI 最重要的不是单次演示，而是安全性、长期稳定性、真实生活可用性和临床证据。"
+    title: "Robotics",
+    hint: "具身智能、人形、真机部署",
+    items: [
+      {
+        id: "pulse-miit-robot-training",
+        title: "Real-world robot training",
+        source: "MIIT / SASAC",
+        date: "2026-06-08",
+        url: "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_f291ccd3da4c47ce95741de63cc088e6.html",
+        confidence: "官方",
+        keywords: ["embodied AI", "humanoid robots", "deployment"],
+        result: "中国启动人形机器人与具身智能实景实训专项行动。",
+        significance: "机器人从演示转向真实场景，相关岗位会更看重测试、控制、仿真和数据。"
+      },
+      {
+        id: "pulse-unitree-watch",
+        title: "Unitree watch",
+        source: "Unitree News",
+        date: "2026-07-28",
+        url: "https://www.unitree.com/news/",
+        confidence: "官方入口",
+        keywords: ["Unitree", "humanoid", "quadruped"],
+        result: "宇树新闻页适合核验新品、演示、赛事和产品动态。",
+        significance: "看到短视频传播时，先确认它是人形竞赛、四足表演还是正式产品发布。"
+      }
+    ]
   },
   {
-    id: "pulse-china-ai-industry",
-    title: "China AI Radar",
-    source: "机器之心 / 量子位 / 智东西",
-    date: "2026-07-28",
-    url: "https://www.jiqizhixin.com/",
-    confidence: "媒体入口",
-    keywords: ["China AI", "国产模型", "机器人", "具身智能"],
-    result: "用中文媒体发现国产模型、机器人公司、融资、招聘和产业落地线索。",
-    significance: "中文产业媒体覆盖快，但每条重要新闻要回到公司公告、政府文件、论文或招聘 JD 核验。"
+    title: "BCI",
+    hint: "临床、植入、神经科技",
+    items: [
+      {
+        id: "pulse-paradromics-implant",
+        title: "First Connexus implant",
+        source: "Paradromics",
+        date: "2026-06-17",
+        url: "https://paradromics.com/news/paradromics-completes-first-human-brain-computer-interface-bci-implantation/",
+        confidence: "公司公告",
+        keywords: ["BCI", "implant", "clinical study"],
+        result: "Paradromics 宣布完成首例 Connexus BCI 人体植入。",
+        significance: "高通量侵入式 BCI 的关注点会转向长期稳定、安全性和真实沟通收益。"
+      },
+      {
+        id: "pulse-nih-speech-bci",
+        title: "Home speech BCI",
+        source: "NIH",
+        date: "2026-07-14",
+        url: "https://www.nih.gov/news-events/nih-research-matters/brain-computer-device-helps-man-speak",
+        confidence: "研究解读",
+        keywords: ["speech BCI", "ALS", "home use"],
+        result: "NIH 介绍一项在家中使用 BCI 帮助 ALS 患者说话的研究。",
+        significance: "BCI 真正重要的指标是能否离开实验室、长期稳定地帮助生活。"
+      }
+    ]
   },
   {
-    id: "pulse-policy-society",
-    title: "Policy Radar",
-    source: "EU / US / China",
-    date: "2026-07-28",
-    url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
-    confidence: "官方优先",
-    keywords: ["AI policy", "AI Act", "MIIT", "CAC", "jobs"],
-    result: "关注 AI Act、中国监管、人形机器人政策、新职业和美国 AI 基础设施政策。",
-    significance: "政策决定哪些应用能落地、哪些岗位会变多，也影响医疗 BCI、机器人和模型服务的合规边界。"
-  },
-  {
-    id: "openai-codex-plan-limits",
-    title: "Codex Access",
-    source: "OpenAI Help",
-    date: "2026-07-28",
-    url: "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
-    confidence: "官方核验",
-    keywords: ["Codex", "rate limits", "OpenAI", "AI tools"],
-    result: "OpenAI 帮助页称 Codex 已包含在各 ChatGPT 计划中，包括 Free 和 Go；使用上限因计划而异。",
-    significance: "该页面没有公布统一的“额度增加倍数”，并将更高用量选项指向 ChatGPT 定价页；个人可用量以账户内显示为准。"
-  },
-  {
-    id: "eu-ai-transparency-2026-07",
-    title: "EU AI Transparency",
-    source: "European Commission",
-    date: "2026-07-27",
-    url: "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
-    confidence: "官方核验",
-    keywords: ["EU AI Act", "transparency", "AI-generated content", "deepfakes"],
-    result: "欧盟委员会发布 AI Act 第 50 条透明度义务指南，相关义务自 2026 年 8 月 2 日起适用。",
-    significance: "提供者和部署者需在特定场景告知用户正在与 AI 交互，并对 AI 生成或篡改内容进行可识别标记。"
-  },
-  {
-    id: "x-ai-robotics-live-search",
-    title: "X Radar",
-    source: "X Live Search",
-    date: "2026-07-20",
-    url: "https://x.com/search?q=%28AI%20agents%20OR%20humanoid%20robots%20OR%20embodied%20AI%20OR%20brain-computer%20interface%29&src=typed_query&f=live",
-    confidence: "X 待核验",
-    keywords: ["X", "AI", "robotics", "embodied AI", "BCI"],
-    result: "这是实时搜索入口，不是已核验结论；适合发现热点，再回到官方页面或原始公告确认。",
-    significance: "把 X 当作早期雷达，而不是最终来源，可以减少被转述和夸张标题误导。"
+    title: "China / Society",
+    hint: "中文产业、政策、就业",
+    items: [
+      {
+        id: "pulse-china-ai-jobs",
+        title: "New AI jobs",
+        source: "Xinhua / State Council",
+        date: "2026-07-03",
+        url: "https://english.www.gov.cn/news/202607/03/content_WS6a4762fbc6d00ca5f9a0c021.html",
+        confidence: "官方媒体",
+        keywords: ["AI jobs", "embodied intelligence", "career"],
+        result: "中国拟新增具身智能机器人技术人员、人工智能体开发员等职业/工种。",
+        significance: "这直接影响学生该做什么项目、投什么实习和补哪些技能。"
+      },
+      {
+        id: "pulse-eu-transparency",
+        title: "AI transparency rules",
+        source: "European Commission",
+        date: "2026-07-27",
+        url: "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
+        confidence: "官方",
+        keywords: ["EU AI Act", "transparency", "policy"],
+        result: "欧盟发布 AI 透明度义务指南，要求特定 AI 交互和生成内容可识别。",
+        significance: "医疗、教育、招聘、媒体内容等 AI 应用会越来越需要合规意识。"
+      }
+    ]
   }
 ];
+
+const aiPulseItems = aiPulseGroups.flatMap((group) => group.items.map((item) => ({ ...item, lane: group.title })));
 
 const chronicleSections = [
   {
@@ -1909,7 +1974,7 @@ function renderNotebook() {
 }
 
 function renderAIPulse() {
-  els.aiPulseList.innerHTML = aiPulseItems.map(renderAIPulseItem).join("");
+  els.aiPulseList.innerHTML = aiPulseGroups.map(renderAIPulseGroup).join("");
   els.aiPulseList.querySelectorAll("[data-collect-pulse]").forEach((button) => {
     button.addEventListener("click", () => collectPulseItem(button.dataset.collectPulse));
   });
@@ -2116,23 +2181,33 @@ function collectChronicleItem(id) {
   renderWithMotion();
 }
 
+function renderAIPulseGroup(group) {
+  return `
+    <section class="ai-pulse-group">
+      <div class="ai-pulse-group__head">
+        <strong>${escapeHTML(group.title)}</strong>
+        <span>${escapeHTML(group.hint)}</span>
+      </div>
+      <div class="ai-pulse-group__items">
+        ${group.items.map(renderAIPulseItem).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderAIPulseItem(item) {
   const exists = articles.some((article) => article.title === item.title);
   return `
     <article class="ai-pulse-item">
       <div class="ai-pulse-item__top">
-        <span class="pill">${escapeHTML(item.confidence)}</span>
-        <span>${escapeHTML(item.source)}</span>
+        <strong>${escapeHTML(item.title)}</strong>
+        <span>${escapeHTML(item.date)}</span>
       </div>
-      <h3>${escapeHTML(item.title)}</h3>
-      <p><strong>${t("result")}</strong>：${escapeHTML(item.result)}</p>
-      <p><strong>${t("meaning")}</strong>：${escapeHTML(item.significance)}</p>
-      <div class="article-keywords">
-        ${item.keywords.map((keyword) => `<span>${escapeHTML(keyword)}</span>`).join("")}
-      </div>
-      <div class="article-card__links">
-        <a class="link-button" href="${escapeAttribute(item.url)}" target="_blank" rel="noreferrer">${t("openSource")}</a>
-        <button class="link-button ${exists ? "is-saved" : ""}" type="button" data-collect-pulse="${item.id}">${exists ? t("saved") : t("save")}</button>
+      <p>${escapeHTML(item.result)}</p>
+      <div class="ai-pulse-item__foot">
+        <a href="${escapeAttribute(item.url)}" target="_blank" rel="noreferrer">${escapeHTML(item.source)}</a>
+        <span>${escapeHTML(item.confidence)}</span>
+        <button class="${exists ? "is-saved" : ""}" type="button" data-collect-pulse="${item.id}">${exists ? "✓" : "+"}</button>
       </div>
     </article>
   `;
@@ -2154,13 +2229,13 @@ function collectPulseItem(id) {
     source: item.source,
     date: els.selectedDate.value || todayISO(),
     published: item.date,
-    topic: "AI 工具动态",
-    priority: item.confidence === "官方核验" ? "high" : "medium",
+    topic: item.lane || "AI 工具动态",
+    priority: item.confidence === "官方" ? "high" : "medium",
     evidence: "industry",
     keywords: item.keywords,
     result: item.result,
     significance: item.significance,
-    notes: item.confidence === "X 待核验" ? "X 实时消息需要回到官方公告、原始文档或产品内提示核验。" : "官方来源快讯。"
+    notes: `来自 Pulse：${item.confidence}。${item.significance}`
   });
 
   articles = [article, ...articles];

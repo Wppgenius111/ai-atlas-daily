@@ -1008,21 +1008,120 @@ label span {
   background: rgba(250, 248, 241, 0.74);
 }
 
+.ai-pulse-list {
+  gap: 14px;
+}
+
+.ai-pulse-group {
+  display: grid;
+  gap: 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ai-pulse-group:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.ai-pulse-group__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ai-pulse-group__head strong {
+  font-size: 0.86rem;
+  color: var(--text);
+}
+
+.ai-pulse-group__head span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-align: right;
+}
+
+.ai-pulse-group__items {
+  display: grid;
+  gap: 8px;
+}
+
 .ai-pulse-item {
-  box-shadow: var(--shadow-soft);
+  padding: 10px 11px;
+  background: rgba(255, 248, 251, 0.48);
+  box-shadow: none;
+  transition:
+    transform 180ms var(--spring),
+    background 180ms var(--spring),
+    border-color 180ms var(--spring);
+}
+
+.ai-pulse-item:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 248, 251, 0.72);
+  border-color: var(--line-strong);
 }
 
 .ai-pulse-item__top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.72rem;
 }
 
-.ai-pulse-item strong {
+.ai-pulse-item__top strong {
+  color: var(--graphite);
+  font-size: 0.84rem;
+  line-height: 1.25;
+}
+
+.ai-pulse-item p {
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  line-height: 1.48;
+}
+
+.ai-pulse-item__foot {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.ai-pulse-item__foot a {
+  color: var(--teal);
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.ai-pulse-item__foot span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ai-pulse-item__foot button {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(221, 235, 228, 0.6);
+  color: var(--teal);
+  font-weight: 820;
+}
+
+.ai-pulse-item__foot button.is-saved {
+  background: rgba(221, 235, 228, 0.9);
   color: var(--graphite);
 }
 
