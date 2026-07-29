@@ -302,37 +302,26 @@ const aiPulseGroups = [
     hint: "模型、Agent、额度、API",
     items: [
       {
-        id: "pulse-openai-codex-access",
-        title: "Codex availability",
-        source: "OpenAI Help",
+        id: "pulse-kimi-k3-platform-2026-07-28",
+        title: "Kimi K3 API",
+        source: "Kimi API Platform",
         date: "2026-07-28",
-        url: "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+        url: "https://platform.kimi.ai/docs/pricing/chat-k3.md",
         confidence: "官方",
-        keywords: ["Codex", "OpenAI", "developer tools"],
-        result: "OpenAI 帮助页称 Codex 覆盖多个 ChatGPT 计划，具体上限按账户和计划显示。",
-        significance: "适合关注 AI coding agent 是否已经变成日常科研/开发基础工具。"
+        keywords: ["Kimi K3", "Moonshot AI", "agentic coding", "pricing"],
+        result: "Kimi API Platform 将 K3 列为旗舰模型，标注 1M 上下文和 $3/M 输入、$15/M 输出价格。",
+        significance: "国产模型竞争正在从跑分进入长上下文 agent 和真实工程成本。"
       },
       {
-        id: "pulse-deepmind-cyber",
-        title: "Gemini for cyber",
-        source: "Google DeepMind",
-        date: "2026-07-21",
-        url: "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/",
+        id: "pulse-kimi-k3-github-2026-07-28",
+        title: "Kimi K3 weights",
+        source: "MoonshotAI GitHub",
+        date: "2026-07-28",
+        url: "https://github.com/MoonshotAI/Kimi-K3",
         confidence: "官方",
-        keywords: ["Gemini", "cybersecurity", "AI agents"],
-        result: "DeepMind 把 Gemini 3.5 Flash Cyber 定位为网络安全场景的轻量模型。",
-        significance: "说明 Agent 落地不只在写代码，也会进入安全检测和系统修复。"
-      },
-      {
-        id: "pulse-anthropic-code",
-        title: "Claude Code",
-        source: "Anthropic",
-        date: "2026-07-06",
-        url: "https://www.anthropic.com/news",
-        confidence: "官方",
-        keywords: ["Claude Code", "coding agent", "workflow"],
-        result: "Anthropic 把 Claude Code 的产品故事放在新闻页，强调 coding agent 工作流。",
-        significance: "值得和 Codex 对比，判断科研代码、自动实验和项目维护该用哪类工具。"
+        keywords: ["open-weight", "2.8T", "multimodal", "Moonshot AI"],
+        result: "MoonshotAI 在 GitHub 公开 Kimi K3 仓库，README 称其为 2.8T 参数、104B 激活参数的开放权重多模态 agentic 模型。",
+        significance: "需要同时看能力、许可、部署门槛和数据安全，而不只看榜单名次。"
       }
     ]
   },
@@ -341,26 +330,26 @@ const aiPulseGroups = [
     hint: "头部人物/团队在说什么",
     items: [
       {
-        id: "pulse-altman-openai-work",
-        title: "OpenAI work narrative",
+        id: "pulse-openai-news-watch-2026-07-29",
+        title: "OpenAI cadence",
         source: "OpenAI News",
-        date: "2026-07-27",
+        date: "2026-07-29",
         url: "https://openai.com/news/company-announcements/",
         confidence: "官方",
-        keywords: ["future of work", "AI adoption", "agents"],
-        result: "OpenAI 官方叙事正在把 AI 从聊天工具推向工作能力扩展。",
-        significance: "看 leader 和公司叙事时，重点观察它如何改变岗位能力要求。"
+        keywords: ["OpenAI", "company announcements", "AI adoption"],
+        result: "OpenAI 新闻页最近主线仍是 7 月模型发布和 7/27 工作场景采用，未见 7/28 新模型公告。",
+        significance: "跟踪 leader 叙事时要把官方发布节奏和社交平台传闻分开。"
       },
       {
-        id: "pulse-deepmind-blog-watch",
-        title: "DeepMind direction",
-        source: "Google DeepMind Blog",
-        date: "2026-07-28",
-        url: "https://deepmind.google/blog/",
-        confidence: "官方入口",
-        keywords: ["Gemini", "robotics", "science AI"],
-        result: "DeepMind 官方博客持续覆盖 Gemini、科学 AI、安全和机器人。",
-        significance: "它适合作为“专业路线风向标”，比刷碎片化转发更稳定。"
+        id: "pulse-anthropic-news-watch-2026-07-29",
+        title: "Anthropic cadence",
+        source: "Anthropic News",
+        date: "2026-07-29",
+        url: "https://www.anthropic.com/news",
+        confidence: "官方",
+        keywords: ["Anthropic", "Claude", "open weights"],
+        result: "Anthropic 新闻页最新头条仍是 7/24 Claude Opus 5，7/28 未见新的官方模型或政策声明。",
+        significance: "Dario/Claude 相关传闻进入判断前应先回到官方新闻页核验。"
       }
     ]
   },
@@ -369,26 +358,37 @@ const aiPulseGroups = [
     hint: "具身智能、人形、真机部署",
     items: [
       {
-        id: "pulse-miit-robot-training",
-        title: "Real-world robot training",
-        source: "MIIT / SASAC",
-        date: "2026-06-08",
-        url: "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_f291ccd3da4c47ce95741de63cc088e6.html",
+        id: "pulse-nvidia-jetson-2026-07-28",
+        title: "Jetson physical AI",
+        source: "NVIDIA Blog",
+        date: "2026-07-28",
+        url: "https://blogs.nvidia.com/blog/build-ai-with-nvidia-jetson/",
         confidence: "官方",
-        keywords: ["embodied AI", "humanoid robots", "deployment"],
-        result: "中国启动人形机器人与具身智能实景实训专项行动。",
-        significance: "机器人从演示转向真实场景，相关岗位会更看重测试、控制、仿真和数据。"
+        keywords: ["Jetson", "physical AI", "edge robotics"],
+        result: "NVIDIA 发布 Jetson 物理 AI 入门系列，强调本地运行视觉、语音和 VLM/VLA 机器人应用。",
+        significance: "机器人研究正在把基础模型、边缘算力和实验教学工具链绑在一起。"
       },
       {
-        id: "pulse-unitree-watch",
-        title: "Unitree watch",
-        source: "Unitree News",
+        id: "pulse-dc-wam-2026-07-28",
+        title: "World-action dynamics",
+        source: "arXiv",
         date: "2026-07-28",
-        url: "https://www.unitree.com/news/",
-        confidence: "官方入口",
-        keywords: ["Unitree", "humanoid", "quadruped"],
-        result: "宇树新闻页适合核验新品、演示、赛事和产品动态。",
-        significance: "看到短视频传播时，先确认它是人形竞赛、四足表演还是正式产品发布。"
+        url: "https://arxiv.org/abs/2607.25918",
+        confidence: "论文",
+        keywords: ["world-action model", "VLA", "robot manipulation"],
+        result: "DC-WAM 将未来视觉预测的监督转向交互动态和控制相关 token。",
+        significance: "VLA/WAM 研究重点正在从“看起来像未来”转向“对控制有用”。"
+      },
+      {
+        id: "pulse-fcc-china-robot-ban-2026-07-28",
+        title: "FCC robot ban",
+        source: "The Guardian",
+        date: "2026-07-28",
+        url: "https://www.theguardian.com/us-news/2026/jul/28/fcc-ban-humanoid-robots-china",
+        confidence: "可靠媒体",
+        keywords: ["FCC", "China", "humanoid robots", "regulation"],
+        result: "Guardian 报道 FCC 禁止来自中国的人形和动物形联网机器人设备，理由是国家安全风险。",
+        significance: "人形机器人会同时面对硬件供应链、通信认证和地缘合规限制。"
       }
     ]
   },
@@ -397,26 +397,26 @@ const aiPulseGroups = [
     hint: "临床、植入、神经科技",
     items: [
       {
-        id: "pulse-paradromics-implant",
-        title: "First Connexus implant",
-        source: "Paradromics",
-        date: "2026-06-17",
-        url: "https://paradromics.com/news/paradromics-completes-first-human-brain-computer-interface-bci-implantation/",
-        confidence: "公司公告",
-        keywords: ["BCI", "implant", "clinical study"],
-        result: "Paradromics 宣布完成首例 Connexus BCI 人体植入。",
-        significance: "高通量侵入式 BCI 的关注点会转向长期稳定、安全性和真实沟通收益。"
+        id: "pulse-eegalign-2026-07-28",
+        title: "Chinese EEG-to-text",
+        source: "arXiv",
+        date: "2026-07-28",
+        url: "https://arxiv.org/abs/2607.25626",
+        confidence: "论文",
+        keywords: ["EEG", "speech decoding", "Chinese", "BCI"],
+        result: "EEGAlign 用文本嵌入和音频特征联合对齐，报告中文 EEG-to-text 闭集句子分类提升。",
+        significance: "非侵入式语音 BCI 的关键仍是跨被试噪声、语义-声学对齐和开放词表能力。"
       },
       {
-        id: "pulse-nih-speech-bci",
-        title: "Home speech BCI",
-        source: "NIH",
-        date: "2026-07-14",
-        url: "https://www.nih.gov/news-events/nih-research-matters/brain-computer-device-helps-man-speak",
-        confidence: "研究解读",
-        keywords: ["speech BCI", "ALS", "home use"],
-        result: "NIH 介绍一项在家中使用 BCI 帮助 ALS 患者说话的研究。",
-        significance: "BCI 真正重要的指标是能否离开实验室、长期稳定地帮助生活。"
+        id: "pulse-stroke-xai-2026-07-28",
+        title: "Stroke rehab XAI",
+        source: "arXiv",
+        date: "2026-07-28",
+        url: "https://arxiv.org/abs/2607.25423",
+        confidence: "论文",
+        keywords: ["stroke rehabilitation", "XAI", "neurorehab"],
+        result: "一篇 HCI/AI 论文从卒中康复场景访谈中整理可解释 AI 需求。",
+        significance: "神经康复系统不只拼模型性能，也需要面向临床人员和患者的可解释设计。"
       }
     ]
   },
@@ -425,26 +425,37 @@ const aiPulseGroups = [
     hint: "中文产业、政策、就业",
     items: [
       {
-        id: "pulse-china-ai-jobs",
-        title: "New AI jobs",
-        source: "Xinhua / State Council",
-        date: "2026-07-03",
-        url: "https://english.www.gov.cn/news/202607/03/content_WS6a4762fbc6d00ca5f9a0c021.html",
+        id: "pulse-china-ai-applications-2026-07-28",
+        title: "China model applications",
+        source: "China Daily / CGTN",
+        date: "2026-07-28",
+        url: "https://subsites.chinadaily.com.cn/Qiushi/2026-07/28/c_1200609.htm",
         confidence: "官方媒体",
-        keywords: ["AI jobs", "embodied intelligence", "career"],
-        result: "中国拟新增具身智能机器人技术人员、人工智能体开发员等职业/工种。",
-        significance: "这直接影响学生该做什么项目、投什么实习和补哪些技能。"
+        keywords: ["China AI", "Kimi K3", "applications"],
+        result: "China Daily/CGTN 称 Kimi K3 代表中国大模型从聊天式回答转向能完成任务的 AI 系统。",
+        significance: "国内产业叙事正在把模型能力、办公/科研工具和产业升级放在同一条线上。"
       },
       {
-        id: "pulse-eu-transparency",
-        title: "AI transparency rules",
-        source: "European Commission",
-        date: "2026-07-27",
-        url: "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
-        confidence: "官方",
-        keywords: ["EU AI Act", "transparency", "policy"],
-        result: "欧盟发布 AI 透明度义务指南，要求特定 AI 交互和生成内容可识别。",
-        significance: "医疗、教育、招聘、媒体内容等 AI 应用会越来越需要合规意识。"
+        id: "pulse-eu-high-risk-db-2026-07-28",
+        title: "EU AI database delay",
+        source: "Euractiv",
+        date: "2026-07-28",
+        url: "https://www.euractiv.com/news/eus-high-risk-ai-database-pushed-back-to-mid-to-late-2027/",
+        confidence: "可靠媒体",
+        keywords: ["EU AI Act", "high-risk AI", "compliance"],
+        result: "Euractiv 报道欧盟高风险 AI 数据库可能推迟到 2027 年中后期上线。",
+        significance: "AI 合规不是只有法规文本，执行系统和登记流程也会影响产品节奏。"
+      },
+      {
+        id: "pulse-ai-robot-teacher-2026-07-28",
+        title: "Robot teacher backlash",
+        source: "Associated Press",
+        date: "2026-07-28",
+        url: "https://ktar.com/national-news/new-york-school-pauses-plan-to-deploy-humanlike-ai-robot-teacher-after-backlash/5892995/",
+        confidence: "可靠媒体",
+        keywords: ["AI education", "humanoid robot", "society"],
+        result: "AP 报道纽约一学区在反对声中暂停采购人形 AI 机器人教师。",
+        significance: "教育场景会成为 AI/机器人落地的高敏感区，采购伦理和社区接受度同样重要。"
       }
     ]
   }
@@ -1476,6 +1487,118 @@ function seedArticles() {
 
 function starterArticles() {
   return [
+    {
+      id: "seed-eegalign-2026-07-29",
+      title: "Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception",
+      url: "https://arxiv.org/abs/2607.25626",
+      identifier: "arXiv:2607.25626",
+      source: "arXiv",
+      date: "2026-07-29",
+      published: "2026-07-28",
+      topic: "脑机接口",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["EEG", "speech BCI", "Chinese decoding", "contrastive learning", "CTC"],
+      result: "论文提出 EEGAlign，用 BGE-M3 文本嵌入和 wav2vec 2.0 音频特征联合对齐 EEG，再用 CTC 做中文字符序列解码；作者报告 Reading Aloud EEG 闭集 Top-1 达 82.37%，Passive Listening EEG 达 41.43%。",
+      significance: "这对非侵入式语音 BCI 很相关：它把中文大词表、语义对齐和声学时间分辨率放到同一框架，但仍需关注闭集候选、跨被试泛化和真实沟通速率。",
+      notes: "阅读重点：ChineseEEG-2 数据设定、闭集候选规模、跨被试划分、文本/音频双轴对齐的消融。"
+    },
+    {
+      id: "seed-hifi-umi-2026-07-29",
+      title: "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+      url: "https://arxiv.org/abs/2607.25895",
+      identifier: "arXiv:2607.25895",
+      source: "arXiv",
+      date: "2026-07-29",
+      published: "2026-07-28",
+      topic: "具身智能",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["robot data", "UMI", "VLA", "world-action model", "real robot"],
+      result: "论文提出高保真 UMI 数据生产系统，报告无需真实机器人 post-training anchor 也能把策略直接部署到真实机器人，并开源 HiFi-UMI-2K 数据集。",
+      significance: "这类工作把具身智能瓶颈从单纯模型结构转向数据采集精度、同步、验证和可部署性；BCI 方向也可借鉴“低成本意图输入 + 高层机器人策略”的数据闭环。",
+      notes: "阅读重点：3 mm 精度如何测量、2,000 小时数据如何验证、zero-robot post-training 与真实 teleoperation baseline 的评测差异。"
+    },
+    {
+      id: "seed-cotinyvla-2026-07-29",
+      title: "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model",
+      url: "https://arxiv.org/abs/2607.25487",
+      identifier: "arXiv:2607.25487",
+      source: "arXiv",
+      date: "2026-07-29",
+      published: "2026-07-28",
+      topic: "机器人",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["VLA", "distillation", "Qwen", "edge robotics", "small model"],
+      result: "论文用 35B teacher 的分层 CoT 蒸馏训练 0.9B VLA 模型，报告在 LIBERO-Plus 多个扰动维度上超过 3B-7B baseline，闭环推理峰值显存约 2.25 GiB。",
+      significance: "小型 VLA 能否在边缘机器人上稳定运行，会直接影响真实部署成本；需要核验其 benchmark 覆盖、真实机器人实验和 CoT 蒸馏是否可泛化。",
+      notes: "阅读重点：LIBERO-Plus 设置、teacher/student 数据、dual-view 历史帧、episode Plan 消融和真实闭环延迟。"
+    },
+    {
+      id: "seed-kimi-k3-open-weights-2026-07-29",
+      title: "MoonshotAI opens Kimi K3 weights and API documentation",
+      url: "https://github.com/MoonshotAI/Kimi-K3",
+      identifier: "",
+      source: "MoonshotAI GitHub / Kimi API Platform",
+      date: "2026-07-29",
+      published: "2026-07-28",
+      topic: "AI 模型",
+      priority: "high",
+      evidence: "news",
+      keywords: ["Kimi K3", "open-weight", "Moonshot AI", "agentic coding", "multimodal"],
+      result: "MoonshotAI 官方仓库称 Kimi K3 是 2.8T 总参数、104B 激活参数的开放权重多模态 agentic 模型，Kimi API 文档列出 1M 上下文和 $3/M 输入、$15/M 输出价格。",
+      significance: "国产前沿模型正在用开放权重、长上下文和明确价格争夺开发者；评估时应同时看许可、部署成本、评测可信度和数据安全。",
+      notes: "后续跟踪：模型卡、benchmark 细节、商用许可、推理硬件需求和中文科研/代码任务表现。"
+    },
+    {
+      id: "seed-nvidia-jetson-physical-ai-2026-07-29",
+      title: "NVIDIA publishes Jetson physical AI builder guide",
+      url: "https://blogs.nvidia.com/blog/build-ai-with-nvidia-jetson/",
+      identifier: "",
+      source: "NVIDIA Blog",
+      date: "2026-07-29",
+      published: "2026-07-28",
+      topic: "机器人",
+      priority: "medium",
+      evidence: "news",
+      keywords: ["NVIDIA Jetson", "physical AI", "robotics", "edge AI", "VLM"],
+      result: "NVIDIA 发布 Jetson 物理 AI 入门系列，展示如何在边缘设备上运行视觉、语音和多模态模型以驱动真实机器人应用。",
+      significance: "机器人和具身智能的学习门槛正在降低，但真正有价值的是把 perception、policy、latency 和 hardware constraints 一起调通。",
+      notes: "适合做小项目：Jetson/本地小模型 + 相机输入 + 机械臂或移动平台任务。"
+    },
+    {
+      id: "seed-fcc-china-robot-ban-2026-07-29",
+      title: "FCC bars China-made connected humanoid and animal-like robots",
+      url: "https://www.theguardian.com/us-news/2026/jul/28/fcc-ban-humanoid-robots-china",
+      identifier: "",
+      source: "The Guardian",
+      date: "2026-07-29",
+      published: "2026-07-28",
+      topic: "政策",
+      priority: "high",
+      evidence: "news",
+      keywords: ["FCC", "humanoid robots", "China", "connected devices", "security"],
+      result: "Guardian 报道美国 FCC 禁止来自中国的人形和动物形联网机器人设备，理由是国家安全风险。",
+      significance: "人形机器人部署不只是控制和感知问题，也会被通信认证、供应链安全和地缘政策约束；做机器人产品需要尽早理解合规边界。",
+      notes: "后续应等待 FCC 原始命令和覆盖清单细节，避免把媒体报道扩写成尚未公布的具体公司名单。"
+    },
+    {
+      id: "seed-eu-high-risk-ai-db-delay-2026-07-29",
+      title: "EU high-risk AI database timeline moves toward 2027",
+      url: "https://www.euractiv.com/news/eus-high-risk-ai-database-pushed-back-to-mid-to-late-2027/",
+      identifier: "",
+      source: "Euractiv",
+      date: "2026-07-29",
+      published: "2026-07-28",
+      topic: "AI 政策",
+      priority: "medium",
+      evidence: "news",
+      keywords: ["EU AI Act", "high-risk AI", "database", "compliance"],
+      result: "Euractiv 报道欧盟高风险 AI 数据库可能推迟到 2027 年中后期上线，相关登记和执行流程仍在建设中。",
+      significance: "AI Act 的影响不只来自法律文本，登记系统、指南和执行时间表会直接影响医疗、教育、招聘等高风险产品落地。",
+      notes: "对 BCI/医疗 AI 项目，要同时跟踪模型性能、临床证据和欧盟高风险系统合规义务。"
+    },
     {
       id: "seed-bci-ai-copilots",
       title: "Brain-computer interface control with artificial intelligence copilots",
