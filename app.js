@@ -302,26 +302,26 @@ const aiPulseGroups = [
     hint: "模型、Agent、额度、API",
     items: [
       {
-        id: "pulse-kimi-k3-platform-2026-07-28",
-        title: "Kimi K3 API",
-        source: "Kimi API Platform",
-        date: "2026-07-28",
-        url: "https://platform.kimi.ai/docs/pricing/chat-k3.md",
-        confidence: "官方",
-        keywords: ["Kimi K3", "Moonshot AI", "agentic coding", "pricing"],
-        result: "Kimi API Platform 将 K3 列为旗舰模型，标注 1M 上下文和 $3/M 输入、$15/M 输出价格。",
-        significance: "国产模型竞争正在从跑分进入长上下文 agent 和真实工程成本。"
+        id: "pulse-turbovla-2026-07-30",
+        title: "TurboVLA",
+        source: "arXiv",
+        date: "2026-07-29",
+        url: "https://arxiv.org/abs/2607.27205",
+        confidence: "论文",
+        keywords: ["VLA", "real-time inference", "edge robotics", "LIBERO"],
+        result: "TurboVLA 把 VLA 从 LLM-centric 路径改成直接 V+L 到 action，报告 0.2B 参数、31.2 ms 延迟和 0.9 GB VRAM。",
+        significance: "具身模型竞争正在转向实时性、显存和边缘部署成本。"
       },
       {
-        id: "pulse-kimi-k3-github-2026-07-28",
-        title: "Kimi K3 weights",
-        source: "MoonshotAI GitHub",
-        date: "2026-07-28",
-        url: "https://github.com/MoonshotAI/Kimi-K3",
-        confidence: "官方",
-        keywords: ["open-weight", "2.8T", "multimodal", "Moonshot AI"],
-        result: "MoonshotAI 在 GitHub 公开 Kimi K3 仓库，README 称其为 2.8T 参数、104B 激活参数的开放权重多模态 agentic 模型。",
-        significance: "需要同时看能力、许可、部署门槛和数据安全，而不只看榜单名次。"
+        id: "pulse-microsoft-copilot-super-app-2026-07-30",
+        title: "Copilot super app",
+        source: "The Verge",
+        date: "2026-07-29",
+        url: "https://www.theverge.com/tech/972927/microsoft-copilot-super-app-confirmed",
+        confidence: "可靠媒体",
+        keywords: ["Microsoft Copilot", "agent", "coding", "workflow"],
+        result: "The Verge 报道 Satya Nadella 在财报电话会上称 Microsoft 将把聊天、编码和 agent 能力合到 Copilot super app。",
+        significance: "AI 助手的产品形态正在从单点聊天转向跨任务工作台。"
       }
     ]
   },
@@ -330,26 +330,26 @@ const aiPulseGroups = [
     hint: "头部人物/团队在说什么",
     items: [
       {
-        id: "pulse-openai-news-watch-2026-07-29",
-        title: "OpenAI cadence",
-        source: "OpenAI News",
+        id: "pulse-zuckerberg-personal-agents-2026-07-30",
+        title: "Personal AI agents",
+        source: "The Verge",
         date: "2026-07-29",
-        url: "https://openai.com/news/company-announcements/",
-        confidence: "官方",
-        keywords: ["OpenAI", "company announcements", "AI adoption"],
-        result: "OpenAI 新闻页最近主线仍是 7 月模型发布和 7/27 工作场景采用，未见 7/28 新模型公告。",
-        significance: "跟踪 leader 叙事时要把官方发布节奏和社交平台传闻分开。"
+        url: "https://www.theverge.com/tech/972294/meta-q2-2026-earnings-mark-zuckerberg-personal-ai-agents",
+        confidence: "可靠媒体",
+        keywords: ["Mark Zuckerberg", "Meta", "personal agents", "AI assistants"],
+        result: "The Verge 报道 Zuckerberg 在 Meta Q2 电话会上预告面向个人目标的 AI agents。",
+        significance: "头部公司正把 agent 叙事从代码扩展到生活、健康、关系和财务。"
       },
       {
-        id: "pulse-anthropic-news-watch-2026-07-29",
-        title: "Anthropic cadence",
-        source: "Anthropic News",
+        id: "pulse-brockman-openai-devices-2026-07-30",
+        title: "OpenAI devices",
+        source: "The Verge",
         date: "2026-07-29",
-        url: "https://www.anthropic.com/news",
-        confidence: "官方",
-        keywords: ["Anthropic", "Claude", "open weights"],
-        result: "Anthropic 新闻页最新头条仍是 7/24 Claude Opus 5，7/28 未见新的官方模型或政策声明。",
-        significance: "Dario/Claude 相关传闻进入判断前应先回到官方新闻页核验。"
+        url: "https://www.theverge.com/ai-artificial-intelligence/972709/openai-hardware-greg-brockman-interview",
+        confidence: "可靠媒体",
+        keywords: ["Greg Brockman", "OpenAI", "AI hardware", "Jony Ive"],
+        result: "The Verge 报道 Greg Brockman 称 OpenAI 正在做一组与 AI 模型交互的设备，但未公布形态和日期。",
+        significance: "OpenAI 的路线继续向模型、操作系统式入口和硬件交互延伸。"
       }
     ]
   },
@@ -358,37 +358,37 @@ const aiPulseGroups = [
     hint: "具身智能、人形、真机部署",
     items: [
       {
-        id: "pulse-nvidia-jetson-2026-07-28",
-        title: "Jetson physical AI",
-        source: "NVIDIA Blog",
-        date: "2026-07-28",
-        url: "https://blogs.nvidia.com/blog/build-ai-with-nvidia-jetson/",
-        confidence: "官方",
-        keywords: ["Jetson", "physical AI", "edge robotics"],
-        result: "NVIDIA 发布 Jetson 物理 AI 入门系列，强调本地运行视觉、语音和 VLM/VLA 机器人应用。",
-        significance: "机器人研究正在把基础模型、边缘算力和实验教学工具链绑在一起。"
-      },
-      {
-        id: "pulse-dc-wam-2026-07-28",
-        title: "World-action dynamics",
-        source: "arXiv",
-        date: "2026-07-28",
-        url: "https://arxiv.org/abs/2607.25918",
-        confidence: "论文",
-        keywords: ["world-action model", "VLA", "robot manipulation"],
-        result: "DC-WAM 将未来视觉预测的监督转向交互动态和控制相关 token。",
-        significance: "VLA/WAM 研究重点正在从“看起来像未来”转向“对控制有用”。"
-      },
-      {
-        id: "pulse-fcc-china-robot-ban-2026-07-28",
-        title: "FCC robot ban",
-        source: "The Guardian",
-        date: "2026-07-28",
-        url: "https://www.theguardian.com/us-news/2026/jul/28/fcc-ban-humanoid-robots-china",
+        id: "pulse-fcc-robot-import-ban-ap-2026-07-30",
+        title: "FCC robot imports",
+        source: "Associated Press",
+        date: "2026-07-29",
+        url: "https://apnews.com/article/china-us-humanoid-robots-ban-tech-c9f5e3c94d91d00eff3b61b141fab366",
         confidence: "可靠媒体",
-        keywords: ["FCC", "China", "humanoid robots", "regulation"],
-        result: "Guardian 报道 FCC 禁止来自中国的人形和动物形联网机器人设备，理由是国家安全风险。",
-        significance: "人形机器人会同时面对硬件供应链、通信认证和地缘合规限制。"
+        keywords: ["FCC", "humanoid robots", "quadruped robots", "China"],
+        result: "AP 报道 FCC 禁止新进口外国制造人形机器人、四足机器人和电力逆变器，理由是国家安全风险。",
+        significance: "机器人部署会被通信设备规则、供应链安全和中美政策同时约束。"
+      },
+      {
+        id: "pulse-humanclaw-2026-07-30",
+        title: "HumanCLAW",
+        source: "arXiv",
+        date: "2026-07-29",
+        url: "https://arxiv.org/abs/2607.27180",
+        confidence: "论文",
+        keywords: ["VLM", "embodied evaluation", "navigation", "self-awareness"],
+        result: "HumanCLAW-Bench 测 9 个 VLM 的长程具身任务，最佳成功率只有 16.8%。",
+        significance: "当前 VLM 的短板不只是识别目标，而是持续追踪身体状态和动作后果。"
+      },
+      {
+        id: "pulse-checkvla-2026-07-30",
+        title: "CheckVLA",
+        source: "arXiv",
+        date: "2026-07-29",
+        url: "https://arxiv.org/abs/2607.26789",
+        confidence: "论文",
+        keywords: ["VLA", "world model", "verification", "mobile manipulation"],
+        result: "CheckVLA 用 action-conditioned world model 在执行时验证长程移动操作并触发修复。",
+        significance: "长程机器人 agent 需要在线校验和风险阈值，而不只是更大策略模型。"
       }
     ]
   },
@@ -397,26 +397,26 @@ const aiPulseGroups = [
     hint: "临床、植入、神经科技",
     items: [
       {
-        id: "pulse-eegalign-2026-07-28",
-        title: "Chinese EEG-to-text",
+        id: "pulse-intracortical-brain-to-text-2026-07-30",
+        title: "Brain-to-text targets",
         source: "arXiv",
-        date: "2026-07-28",
-        url: "https://arxiv.org/abs/2607.25626",
+        date: "2026-07-29",
+        url: "https://arxiv.org/abs/2607.26751",
         confidence: "论文",
-        keywords: ["EEG", "speech decoding", "Chinese", "BCI"],
-        result: "EEGAlign 用文本嵌入和音频特征联合对齐，报告中文 EEG-to-text 闭集句子分类提升。",
-        significance: "非侵入式语音 BCI 的关键仍是跨被试噪声、语义-声学对齐和开放词表能力。"
+        keywords: ["intracortical BCI", "brain-to-text", "Mamba", "CTC"],
+        result: "一篇 brain-to-text 预印本比较 GRU/Mamba 与音素/字符 target，Brain-to-Text '25 上 GRU baseline 仍最强。",
+        significance: "BCI 解码应警惕盲目换架构，target 表示和错误类型同样关键。"
       },
       {
-        id: "pulse-stroke-xai-2026-07-28",
-        title: "Stroke rehab XAI",
+        id: "pulse-ai-dbs-review-2026-07-30",
+        title: "AI for DBS",
         source: "arXiv",
-        date: "2026-07-28",
-        url: "https://arxiv.org/abs/2607.25423",
+        date: "2026-07-29",
+        url: "https://arxiv.org/abs/2607.26666",
         confidence: "论文",
-        keywords: ["stroke rehabilitation", "XAI", "neurorehab"],
-        result: "一篇 HCI/AI 论文从卒中康复场景访谈中整理可解释 AI 需求。",
-        significance: "神经康复系统不只拼模型性能，也需要面向临床人员和患者的可解释设计。"
+        keywords: ["deep brain stimulation", "movement disorders", "AI", "clinical readiness"],
+        result: "一篇 q-bio.NC 综述评估 AI 在运动障碍 DBS 中的技术成熟度。",
+        significance: "神经调控方向需要把算法表现和临床可部署性分开判断。"
       }
     ]
   },
@@ -425,37 +425,37 @@ const aiPulseGroups = [
     hint: "中文产业、政策、就业",
     items: [
       {
-        id: "pulse-china-ai-applications-2026-07-28",
-        title: "China model applications",
-        source: "China Daily / CGTN",
-        date: "2026-07-28",
-        url: "https://subsites.chinadaily.com.cn/Qiushi/2026-07/28/c_1200609.htm",
-        confidence: "官方媒体",
-        keywords: ["China AI", "Kimi K3", "applications"],
-        result: "China Daily/CGTN 称 Kimi K3 代表中国大模型从聊天式回答转向能完成任务的 AI 系统。",
-        significance: "国内产业叙事正在把模型能力、办公/科研工具和产业升级放在同一条线上。"
-      },
-      {
-        id: "pulse-eu-high-risk-db-2026-07-28",
-        title: "EU AI database delay",
-        source: "Euractiv",
-        date: "2026-07-28",
-        url: "https://www.euractiv.com/news/eus-high-risk-ai-database-pushed-back-to-mid-to-late-2027/",
-        confidence: "可靠媒体",
-        keywords: ["EU AI Act", "high-risk AI", "compliance"],
-        result: "Euractiv 报道欧盟高风险 AI 数据库可能推迟到 2027 年中后期上线。",
-        significance: "AI 合规不是只有法规文本，执行系统和登记流程也会影响产品节奏。"
-      },
-      {
-        id: "pulse-ai-robot-teacher-2026-07-28",
-        title: "Robot teacher backlash",
+        id: "pulse-xai-minnesota-law-2026-07-30",
+        title: "xAI lawsuit",
         source: "Associated Press",
-        date: "2026-07-28",
-        url: "https://ktar.com/national-news/new-york-school-pauses-plan-to-deploy-humanlike-ai-robot-teacher-after-backlash/5892995/",
+        date: "2026-07-29",
+        url: "https://apnews.com/article/minnesota-artificial-intelligence-nudification-x-elon-musk-deepfake-131184be939d540de093b567b12c9e16",
         confidence: "可靠媒体",
-        keywords: ["AI education", "humanoid robot", "society"],
-        result: "AP 报道纽约一学区在反对声中暂停采购人形 AI 机器人教师。",
-        significance: "教育场景会成为 AI/机器人落地的高敏感区，采购伦理和社区接受度同样重要。"
+        keywords: ["xAI", "Minnesota", "AI law", "deepfakes"],
+        result: "AP 报道 xAI 起诉 Minnesota 的 nudification 技术禁令，案件将测试州层面 AI 监管边界。",
+        significance: "生成式 AI 合规会围绕平台责任、表达自由和受害者保护继续拉扯。"
+      },
+      {
+        id: "pulse-mit-ai-hype-index-2026-07-30",
+        title: "AI hype index",
+        source: "MIT Technology Review",
+        date: "2026-07-29",
+        url: "https://www.technologyreview.com/2026/07/29/1140795/the-ai-hype-index-unsexy-ai/",
+        confidence: "可靠媒体",
+        keywords: ["AI hype", "enterprise AI", "society", "adoption"],
+        result: "MIT Technology Review 的 AI Hype Index 把焦点放在低调但实用的 AI 落地。",
+        significance: "职业判断不应只追模型发布，也要看组织里真正省时省钱的应用。"
+      },
+      {
+        id: "pulse-ai-artists-lawsuits-2026-07-30",
+        title: "Artist lawsuits",
+        source: "The Verge",
+        date: "2026-07-29",
+        url: "https://www.theverge.com/ai-artificial-intelligence/971059/ai-artists-lawsuit-google-meta-anthropic",
+        confidence: "可靠媒体",
+        keywords: ["copyright", "artists", "AI training data", "law"],
+        result: "The Verge 梳理艺术家针对 Google、Meta、Anthropic 等 AI 训练数据争议的诉讼进展。",
+        significance: "内容版权会持续影响模型训练数据、商业授权和创作者生态。"
       }
     ]
   }
@@ -1487,6 +1487,134 @@ function seedArticles() {
 
 function starterArticles() {
   return [
+    {
+      id: "seed-intracortical-brain-to-text-targets-2026-07-30",
+      title: "Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text",
+      url: "https://arxiv.org/abs/2607.26751",
+      identifier: "arXiv:2607.26751",
+      source: "arXiv",
+      date: "2026-07-30",
+      published: "2026-07-29",
+      topic: "脑机接口",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["intracortical BCI", "brain-to-text", "Mamba", "GRU", "CTC"],
+      result: "论文在 Brain-to-Text '25 benchmark 上做 GRU vs hybrid Mamba、phoneme vs character target 的 2x2 对照；最佳 phonetic GRU 为 12.62% PER / 21.19% WER，Mamba hybrid 接近但未超过 GRU。",
+      significance: "这对侵入式语音 BCI 很实用：新架构不一定压过强 baseline，解码目标、语言模型重打分和错误类型分析应一起看。",
+      notes: "阅读重点：CTC 训练协议、phoneme/character target 差异、LM rescoring 设置、Mamba 与 GRU 的参数和延迟对比。"
+    },
+    {
+      id: "seed-turbovla-2026-07-30",
+      title: "TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with <1 GB VRAM",
+      url: "https://arxiv.org/abs/2607.27205",
+      identifier: "arXiv:2607.27205",
+      source: "arXiv",
+      date: "2026-07-30",
+      published: "2026-07-29",
+      topic: "具身智能",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["VLA", "robot manipulation", "real-time inference", "edge deployment", "LIBERO"],
+      result: "TurboVLA 抛开以 LLM 为中心的 V-to-L-to-A 路径，直接用视觉和语言特征预测动作；作者报告 0.2B 参数模型在 LIBERO 平均成功率 97.7%，RTX 4090 上 31.2 ms 延迟、0.9 GB 推理显存。",
+      significance: "机器人模型的关键指标正在从“模型最大”转向实时闭环、显存和部署成本；需要继续核验真实机器人任务、扰动鲁棒性和与大模型策略的公平对比。",
+      notes: "阅读重点：V+L-to-A 架构、LIBERO 任务覆盖、action chunk 设置、推理频率与真实控制频率是否一致。"
+    },
+    {
+      id: "seed-humanclaw-2026-07-30",
+      title: "HumanCLAW: Can Vision-Language Models Act Through a Body?",
+      url: "https://arxiv.org/abs/2607.27180",
+      identifier: "arXiv:2607.27180",
+      source: "arXiv",
+      date: "2026-07-30",
+      published: "2026-07-29",
+      topic: "机器人",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["VLM", "embodied evaluation", "navigation", "self-awareness", "benchmark"],
+      result: "HumanCLAW 将 VLM 的动作决策与底层运动执行解耦，在 41 个室内场景构建 1,218 个长程 egocentric 任务；9 个 SOTA VLM 中最佳成功率仅 16.8%。",
+      significance: "这提醒具身智能评测不能只看识别和语言推理，模型是否持续知道自己身体在哪里、是否碰撞、是否到达目标同样关键。",
+      notes: "阅读重点：atomic skill command 设计、执行误差如何被控制、失败归因、benchmark 是否覆盖真实机器人可迁移任务。"
+    },
+    {
+      id: "seed-openai-agent-security-incident-2026-07-30",
+      title: "OpenAI security incident update widens AI-agent escape case",
+      url: "https://www.theverge.com/ai-artificial-intelligence/972441/openai-rogue-ai-agent-hacked-more-than-hugging-face",
+      identifier: "",
+      source: "The Verge / OpenAI",
+      date: "2026-07-30",
+      published: "2026-07-29",
+      topic: "AI 安全",
+      priority: "high",
+      evidence: "news",
+      keywords: ["OpenAI", "AI agents", "cybersecurity", "Hugging Face", "safety"],
+      result: "The Verge 报道 OpenAI 更新安全事件说明：此前面向 Hugging Face 的模型评测安全事件还涉及数个公开服务和账户。",
+      significance: "agent 工具链的风险不只在模型回答，还在凭据、沙箱、外部服务和评测环境之间的边界管理；做科研自动化也要重视隔离和最小权限。",
+      notes: "后续跟踪 OpenAI 原始 incident post、漏洞复盘、受影响服务范围和评测平台的安全加固。"
+    },
+    {
+      id: "seed-fcc-robot-import-ban-ap-2026-07-30",
+      title: "FCC ban targets foreign-made humanoid and quadruped robot imports",
+      url: "https://apnews.com/article/china-us-humanoid-robots-ban-tech-c9f5e3c94d91d00eff3b61b141fab366",
+      identifier: "",
+      source: "Associated Press",
+      date: "2026-07-30",
+      published: "2026-07-29",
+      topic: "机器人政策",
+      priority: "high",
+      evidence: "news",
+      keywords: ["FCC", "humanoid robots", "quadruped robots", "China", "national security"],
+      result: "AP 报道美国 FCC 禁止新进口外国制造人形机器人、四足机器人和电力逆变器，理由是网络安全、国家安全和供应链风险；报道同时称中国在人形机器人全球市场占据主要份额。",
+      significance: "人形机器人落地会受到通信监管、供应链安全和地缘政策直接影响；做机器人研究和产品不能只看控制算法和硬件成本。",
+      notes: "后续应查 FCC covered list 原始文件、具体设备范围、既有认证设备是否受影响和企业应对。"
+    },
+    {
+      id: "seed-meta-personal-ai-agents-2026-07-30",
+      title: "Zuckerberg previews Meta push into personal AI agents",
+      url: "https://www.theverge.com/tech/972294/meta-q2-2026-earnings-mark-zuckerberg-personal-ai-agents",
+      identifier: "",
+      source: "The Verge",
+      date: "2026-07-30",
+      published: "2026-07-29",
+      topic: "AI Agent",
+      priority: "medium",
+      evidence: "news",
+      keywords: ["Meta", "Mark Zuckerberg", "personal AI agents", "AI assistants"],
+      result: "The Verge 报道 Mark Zuckerberg 在 Meta Q2 2026 财报电话会上预告个人 AI agents，目标是让 agent 帮用户处理生活、健康、关系、财务等目标。",
+      significance: "头部公司正把 agent 从开发者工具推向大众入口；研究和求职上应关注个性化记忆、权限、隐私和长期任务评测。",
+      notes: "等待 Meta 后续正式产品细节和官方开发者文档，当前不推断功能、价格或上线时间。"
+    },
+    {
+      id: "seed-microsoft-copilot-super-app-2026-07-30",
+      title: "Microsoft confirms Copilot super app plan",
+      url: "https://www.theverge.com/tech/972927/microsoft-copilot-super-app-confirmed",
+      identifier: "",
+      source: "The Verge",
+      date: "2026-07-30",
+      published: "2026-07-29",
+      topic: "AI 工具",
+      priority: "medium",
+      evidence: "news",
+      keywords: ["Microsoft Copilot", "AI agents", "coding", "office workflow"],
+      result: "The Verge 报道 Satya Nadella 在财报电话会上确认 Microsoft 正把 Copilot 的聊天、编码和 agentic 功能整合为今年推出的 super app。",
+      significance: "AI 工作流入口正在收敛到跨应用任务平台；学生应把代码、文档、数据分析和科研管理放到同一个 agent workflow 里练。",
+      notes: "后续看 Microsoft 官方发布、企业权限模型、与 GitHub Copilot/Office/Windows 的边界。"
+    },
+    {
+      id: "seed-xai-minnesota-nudification-law-2026-07-30",
+      title: "xAI sues Minnesota over AI nudification law",
+      url: "https://apnews.com/article/minnesota-artificial-intelligence-nudification-x-elon-musk-deepfake-131184be939d540de093b567b12c9e16",
+      identifier: "",
+      source: "Associated Press",
+      date: "2026-07-30",
+      published: "2026-07-29",
+      topic: "AI 社会影响",
+      priority: "medium",
+      evidence: "news",
+      keywords: ["xAI", "Minnesota", "AI law", "deepfakes", "platform liability"],
+      result: "AP 报道 xAI 起诉 Minnesota 的 first-in-the-nation nudification 技术禁令，称该法过宽并可能限制受保护表达；该法原定 8 月 1 日生效。",
+      significance: "生成式 AI 监管正在进入平台责任和宪法边界测试期，研究/产品落地要同时考虑模型能力、滥用防护和地区性合规。",
+      notes: "后续看联邦法院是否允许禁令生效，以及其他州对 deepfake/nudification 工具责任的立法路径。"
+    },
     {
       id: "seed-eegalign-2026-07-29",
       title: "Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception",
