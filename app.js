@@ -302,26 +302,26 @@ const aiPulseGroups = [
     hint: "模型、Agent、额度、API",
     items: [
       {
-        id: "pulse-turbovla-2026-07-30",
-        title: "TurboVLA",
-        source: "arXiv",
-        date: "2026-07-29",
-        url: "https://arxiv.org/abs/2607.27205",
-        confidence: "论文",
-        keywords: ["VLA", "real-time inference", "edge robotics", "LIBERO"],
-        result: "TurboVLA 把 VLA 从 LLM-centric 路径改成直接 V+L 到 action，报告 0.2B 参数、31.2 ms 延迟和 0.9 GB VRAM。",
-        significance: "具身模型竞争正在转向实时性、显存和边缘部署成本。"
+        id: "pulse-anthropic-cyber-eval-incidents-2026-08-01",
+        title: "Claude cyber evals",
+        source: "Anthropic",
+        date: "2026-07-30",
+        url: "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+        confidence: "官方",
+        keywords: ["Anthropic", "Claude", "cyber evaluations", "agent safety"],
+        result: "Anthropic 披露 Claude 在第三方网络安全评测环境中误连公网并访问了 3 个真实组织的系统。",
+        significance: "Agent 评测环境本身需要按生产系统级别做隔离、监控和权限控制。"
       },
       {
-        id: "pulse-microsoft-copilot-super-app-2026-07-30",
-        title: "Copilot super app",
-        source: "The Verge",
-        date: "2026-07-29",
-        url: "https://www.theverge.com/tech/972927/microsoft-copilot-super-app-confirmed",
+        id: "pulse-gemini-robotics-2-2026-08-01",
+        title: "Gemini Robotics 2",
+        source: "WIRED / Google DeepMind",
+        date: "2026-07-30",
+        url: "https://www.wired.com/story/google-gemini-can-control-humanoid-robots/",
         confidence: "可靠媒体",
-        keywords: ["Microsoft Copilot", "agent", "coding", "workflow"],
-        result: "The Verge 报道 Satya Nadella 在财报电话会上称 Microsoft 将把聊天、编码和 agent 能力合到 Copilot super app。",
-        significance: "AI 助手的产品形态正在从单点聊天转向跨任务工作台。"
+        keywords: ["Google DeepMind", "Gemini Robotics 2", "VLA", "physical AI"],
+        result: "WIRED 报道 Google DeepMind 发布 Gemini Robotics 2，把 VLM 与两个 VLA 模型组合用于机器人全身与手部控制。",
+        significance: "前沿模型路线正在从屏幕内推理扩展到真实物理执行和安全评测。"
       }
     ]
   },
@@ -330,26 +330,26 @@ const aiPulseGroups = [
     hint: "头部人物/团队在说什么",
     items: [
       {
-        id: "pulse-zuckerberg-personal-agents-2026-07-30",
-        title: "Personal AI agents",
-        source: "The Verge",
-        date: "2026-07-29",
-        url: "https://www.theverge.com/tech/972294/meta-q2-2026-earnings-mark-zuckerberg-personal-ai-agents",
+        id: "pulse-parada-physical-agi-2026-08-01",
+        title: "Physical AGI",
+        source: "WIRED",
+        date: "2026-07-30",
+        url: "https://www.wired.com/story/google-gemini-can-control-humanoid-robots/",
         confidence: "可靠媒体",
-        keywords: ["Mark Zuckerberg", "Meta", "personal agents", "AI assistants"],
-        result: "The Verge 报道 Zuckerberg 在 Meta Q2 电话会上预告面向个人目标的 AI agents。",
-        significance: "头部公司正把 agent 叙事从代码扩展到生活、健康、关系和财务。"
+        keywords: ["Carolina Parada", "Google DeepMind", "physical AGI", "robot safety"],
+        result: "Google DeepMind 机器人负责人 Carolina Parada 将 Gemini Robotics 2 描述为通向 physical AGI 的里程碑。",
+        significance: "头部实验室正在把模型路线、机器人平台和安全 benchmark 绑定成同一叙事。"
       },
       {
-        id: "pulse-brockman-openai-devices-2026-07-30",
-        title: "OpenAI devices",
-        source: "The Verge",
-        date: "2026-07-29",
-        url: "https://www.theverge.com/ai-artificial-intelligence/972709/openai-hardware-greg-brockman-interview",
+        id: "pulse-chinese-ai-researchers-x-2026-08-01",
+        title: "Chinese AI voices",
+        source: "WIRED",
+        date: "2026-07-31",
+        url: "https://www.wired.com/story/chinese-ai-researchers-are-finding-their-voice-on-x/",
         confidence: "可靠媒体",
-        keywords: ["Greg Brockman", "OpenAI", "AI hardware", "Jony Ive"],
-        result: "The Verge 报道 Greg Brockman 称 OpenAI 正在做一组与 AI 模型交互的设备，但未公布形态和日期。",
-        significance: "OpenAI 的路线继续向模型、操作系统式入口和硬件交互延伸。"
+        keywords: ["Moonshot AI", "DeepSeek", "China AI", "research communication"],
+        result: "WIRED 报道 Moonshot、DeepSeek 等中国 AI 研究者更多使用 X 解释研究、招募人才和参与全球讨论。",
+        significance: "跟踪中国模型不能只看官方发布，也要识别哪些个人账号有可核验的一手技术信息。"
       }
     ]
   },
@@ -358,37 +358,37 @@ const aiPulseGroups = [
     hint: "具身智能、人形、真机部署",
     items: [
       {
-        id: "pulse-fcc-robot-import-ban-ap-2026-07-30",
-        title: "FCC robot imports",
-        source: "Associated Press",
-        date: "2026-07-29",
-        url: "https://apnews.com/article/china-us-humanoid-robots-ban-tech-c9f5e3c94d91d00eff3b61b141fab366",
+        id: "pulse-ace-data-0-2026-08-01",
+        title: "ACE-Data-0",
+        source: "arXiv",
+        date: "2026-07-30",
+        url: "https://arxiv.org/abs/2607.28625",
+        confidence: "论文",
+        keywords: ["embodied data", "human demonstrations", "tactile sensing", "VLA"],
+        result: "ACE-Data-0 发布 150 小时、17M 帧、75,000 段家庭交互 episodes 的多模态人类示范数据。",
+        significance: "具身智能的数据竞争正在走向第一视角、多视角、动作、物体轨迹、声音和触觉同步采集。"
+      },
+      {
+        id: "pulse-redflow-2026-08-01",
+        title: "RedFlow",
+        source: "arXiv",
+        date: "2026-07-30",
+        url: "https://arxiv.org/abs/2607.27782",
+        confidence: "论文",
+        keywords: ["VLA", "offline RL", "flow matching", "failure recovery"],
+        result: "RedFlow 把失败 rollout 转成动作级纠错监督，真实操作任务成功率从 56.7% 提到 74.7%。",
+        significance: "机器人策略更新需要显式学习失败恢复，而不是只收集成功示范。"
+      },
+      {
+        id: "pulse-fcc-robot-vacuums-2026-08-01",
+        title: "FCC robot vacuums",
+        source: "WIRED / FCC",
+        date: "2026-07-30",
+        url: "https://www.wired.com/story/the-fcc-is-coming-for-robot-vacuums/",
         confidence: "可靠媒体",
-        keywords: ["FCC", "humanoid robots", "quadruped robots", "China"],
-        result: "AP 报道 FCC 禁止新进口外国制造人形机器人、四足机器人和电力逆变器，理由是国家安全风险。",
-        significance: "机器人部署会被通信设备规则、供应链安全和中美政策同时约束。"
-      },
-      {
-        id: "pulse-humanclaw-2026-07-30",
-        title: "HumanCLAW",
-        source: "arXiv",
-        date: "2026-07-29",
-        url: "https://arxiv.org/abs/2607.27180",
-        confidence: "论文",
-        keywords: ["VLM", "embodied evaluation", "navigation", "self-awareness"],
-        result: "HumanCLAW-Bench 测 9 个 VLM 的长程具身任务，最佳成功率只有 16.8%。",
-        significance: "当前 VLM 的短板不只是识别目标，而是持续追踪身体状态和动作后果。"
-      },
-      {
-        id: "pulse-checkvla-2026-07-30",
-        title: "CheckVLA",
-        source: "arXiv",
-        date: "2026-07-29",
-        url: "https://arxiv.org/abs/2607.26789",
-        confidence: "论文",
-        keywords: ["VLA", "world model", "verification", "mobile manipulation"],
-        result: "CheckVLA 用 action-conditioned world model 在执行时验证长程移动操作并触发修复。",
-        significance: "长程机器人 agent 需要在线校验和风险阈值，而不只是更大策略模型。"
+        keywords: ["FCC", "robot vacuums", "advanced mobile robots", "equipment authorization"],
+        result: "WIRED 解释 FCC 新增 foreign-produced advanced robotic devices 后，联网扫地机、泳池清洁机和割草机的新型号可能难获美国认证。",
+        significance: "消费机器人也会被纳入移动机器人、传感器和联网能力的安全监管框架。"
       }
     ]
   },
@@ -397,26 +397,37 @@ const aiPulseGroups = [
     hint: "临床、植入、神经科技",
     items: [
       {
-        id: "pulse-intracortical-brain-to-text-2026-07-30",
-        title: "Brain-to-text targets",
+        id: "pulse-eeg-editbench-2026-08-01",
+        title: "EEG-EditBench",
         source: "arXiv",
-        date: "2026-07-29",
-        url: "https://arxiv.org/abs/2607.26751",
+        date: "2026-07-30",
+        url: "https://arxiv.org/abs/2607.27857",
         confidence: "论文",
-        keywords: ["intracortical BCI", "brain-to-text", "Mamba", "CTC"],
-        result: "一篇 brain-to-text 预印本比较 GRU/Mamba 与音素/字符 target，Brain-to-Text '25 上 GRU baseline 仍最强。",
-        significance: "BCI 解码应警惕盲目换架构，target 表示和错误类型同样关键。"
+        keywords: ["EEG", "visual decoding", "benchmark", "THINGS-EEG2"],
+        result: "EEG-EditBench 用 2,137 个受控图像编辑测试 8 个 EEG-to-image retrieval 模型保留了哪些视觉信息。",
+        significance: "BCI 视觉解码评测要从粗粒度检索走向对象、属性和背景的可诊断误差。"
       },
       {
-        id: "pulse-ai-dbs-review-2026-07-30",
-        title: "AI for DBS",
+        id: "pulse-eeg-speech-transfer-2026-08-01",
+        title: "EEG speech transfer",
         source: "arXiv",
         date: "2026-07-29",
-        url: "https://arxiv.org/abs/2607.26666",
+        url: "https://arxiv.org/abs/2607.27268",
         confidence: "论文",
-        keywords: ["deep brain stimulation", "movement disorders", "AI", "clinical readiness"],
-        result: "一篇 q-bio.NC 综述评估 AI 在运动障碍 DBS 中的技术成熟度。",
-        significance: "神经调控方向需要把算法表现和临床可部署性分开判断。"
+        keywords: ["EEG", "imagined speech", "foundation models", "speech BCI"],
+        result: "一项 speech BCI benchmark 发现 LaBraM、EEGMamba 在 overt/covert/imagined speech 上未稳定超过 16K 参数 CNN。",
+        significance: "通用 EEG foundation model 迁移到语音解码仍不可靠，可能需要 speech-specific pretraining。"
+      },
+      {
+        id: "pulse-zuna-1-1-arxiv-2026-08-01",
+        title: "ZUNA1.1 paper",
+        source: "arXiv",
+        date: "2026-07-29",
+        url: "https://arxiv.org/abs/2607.27308",
+        confidence: "论文",
+        keywords: ["EEG", "foundation model", "denoising", "super-resolution"],
+        result: "ZUNA1.1 论文版描述 380M EEG diffusion autoencoder，可重建最长 30 秒、任意通道布局和局部坏段。",
+        significance: "非侵入式 BCI 工具链正在出现可本地部署的 EEG 清洗与补全 foundation model。"
       }
     ]
   },
@@ -425,37 +436,37 @@ const aiPulseGroups = [
     hint: "中文产业、政策、就业",
     items: [
       {
-        id: "pulse-xai-minnesota-law-2026-07-30",
-        title: "xAI lawsuit",
-        source: "Associated Press",
-        date: "2026-07-29",
-        url: "https://apnews.com/article/minnesota-artificial-intelligence-nudification-x-elon-musk-deepfake-131184be939d540de093b567b12c9e16",
-        confidence: "可靠媒体",
-        keywords: ["xAI", "Minnesota", "AI law", "deepfakes"],
-        result: "AP 报道 xAI 起诉 Minnesota 的 nudification 技术禁令，案件将测试州层面 AI 监管边界。",
-        significance: "生成式 AI 合规会围绕平台责任、表达自由和受害者保护继续拉扯。"
+        id: "pulse-fcc-covered-list-2026-08-01",
+        title: "FCC Covered List",
+        source: "FCC",
+        date: "2026-07-28",
+        url: "https://docs.fcc.gov/public/attachments/DA-26-786A1.pdf",
+        confidence: "官方",
+        keywords: ["FCC", "Covered List", "advanced robotic devices", "policy"],
+        result: "FCC 公告把 foreign-produced power inverters 和 advanced robotic devices 加入 Covered List。",
+        significance: "AI 硬件与机器人出海会同时面对网络安全、供应链和设备认证风险。"
       },
       {
-        id: "pulse-mit-ai-hype-index-2026-07-30",
-        title: "AI hype index",
-        source: "MIT Technology Review",
-        date: "2026-07-29",
-        url: "https://www.technologyreview.com/2026/07/29/1140795/the-ai-hype-index-unsexy-ai/",
+        id: "pulse-china-ai-x-discourse-2026-08-01",
+        title: "China AI discourse",
+        source: "WIRED",
+        date: "2026-07-31",
+        url: "https://www.wired.com/story/chinese-ai-researchers-are-finding-their-voice-on-x/",
         confidence: "可靠媒体",
-        keywords: ["AI hype", "enterprise AI", "society", "adoption"],
-        result: "MIT Technology Review 的 AI Hype Index 把焦点放在低调但实用的 AI 落地。",
-        significance: "职业判断不应只追模型发布，也要看组织里真正省时省钱的应用。"
+        keywords: ["China AI", "Moonshot AI", "DeepSeek", "research community"],
+        result: "WIRED 称中国 AI 研究者在 X 上的技术发声增加，并以 Moonshot 相关账号最活跃。",
+        significance: "中文 AI 产业信息正在出现跨平台传播层，核验时仍要回到论文、仓库和官方公告。"
       },
       {
-        id: "pulse-ai-artists-lawsuits-2026-07-30",
-        title: "Artist lawsuits",
-        source: "The Verge",
-        date: "2026-07-29",
-        url: "https://www.theverge.com/ai-artificial-intelligence/971059/ai-artists-lawsuit-google-meta-anthropic",
-        confidence: "可靠媒体",
-        keywords: ["copyright", "artists", "AI training data", "law"],
-        result: "The Verge 梳理艺术家针对 Google、Meta、Anthropic 等 AI 训练数据争议的诉讼进展。",
-        significance: "内容版权会持续影响模型训练数据、商业授权和创作者生态。"
+        id: "pulse-anthropic-eval-governance-2026-08-01",
+        title: "Eval governance",
+        source: "Anthropic",
+        date: "2026-07-30",
+        url: "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+        confidence: "官方",
+        keywords: ["AI governance", "third-party evals", "cybersecurity", "METR"],
+        result: "Anthropic 称将扩大评测 transcript 监控、改进调查工具，并与 METR 讨论第三方复核。",
+        significance: "强 agent 的安全治理会越来越依赖可审计评测环境，而不只是模型卡声明。"
       }
     ]
   }
@@ -1487,6 +1498,86 @@ function seedArticles() {
 
 function starterArticles() {
   return [
+    {
+      id: "seed-ace-data-0-2026-08-01",
+      title: "ACE-Data-0: The All-in-One Connected Embodiment Dataset for Robot Learning",
+      url: "https://arxiv.org/abs/2607.28625",
+      identifier: "arXiv:2607.28625",
+      source: "arXiv",
+      date: "2026-08-01",
+      published: "2026-07-30",
+      topic: "具身智能",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["embodied data", "human demonstrations", "multimodal dataset", "tactile sensing", "VLA"],
+      result: "论文发布 ACE-Data-0：150 小时、17M 帧、75,000 段家庭交互 episodes，包含多视角视频、音频、手部/物体轨迹、IMU 和触觉信号。",
+      significance: "具身智能的核心瓶颈继续向真实数据采集质量迁移；对 BCI 研究也有启发，即意图解码未来可能要和多模态行动数据、触觉反馈和机器人策略一起建模。",
+      notes: "阅读重点：数据采集硬件、episode 标注、触觉信号同步、是否支持 VLA 训练与真实机器人迁移。"
+    },
+    {
+      id: "seed-eeg-editbench-2026-08-01",
+      title: "EEG-EditBench: Do EEG Visual Decoding Models Preserve the Image Semantics?",
+      url: "https://arxiv.org/abs/2607.27857",
+      identifier: "arXiv:2607.27857",
+      source: "arXiv",
+      date: "2026-08-01",
+      published: "2026-07-30",
+      topic: "脑机接口",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["EEG", "visual decoding", "semantic preservation", "THINGS-EEG2", "benchmark"],
+      result: "论文构建 EEG-EditBench，用 2,137 个受控图像编辑测试 8 个 EEG-to-image retrieval 模型在对象类别、数量、属性和背景上的语义保持能力。",
+      significance: "非侵入式视觉 BCI 评测不能只看整体检索准确率；这种受控编辑 benchmark 更适合定位模型到底解出了哪些神经表征、哪些只是数据集偏差。",
+      notes: "阅读重点：基于 THINGS-EEG2 的编辑协议、8 个 baseline 的失败类型、语义类别与 EEG 时间窗之间的对应关系。"
+    },
+    {
+      id: "seed-redflow-2026-08-01",
+      title: "RedFlow: Enabling Robotic Redoing via Corrective Flow Matching",
+      url: "https://arxiv.org/abs/2607.27782",
+      identifier: "arXiv:2607.27782",
+      source: "arXiv",
+      date: "2026-08-01",
+      published: "2026-07-30",
+      topic: "机器人",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["robot manipulation", "offline RL", "flow matching", "failure recovery", "corrective data"],
+      result: "RedFlow 把失败轨迹转化为动作级纠错信号，并用 conditional flow matching 学习从失误状态回到成功路径；作者报告真实操作任务平均成功率从 56.7% 提升到 74.7%。",
+      significance: "机器人策略训练正在从“只模仿成功示范”转向显式学习失败恢复，这对未来 BCI 控制机器人也很关键：用户意图和机器人执行之间必须允许纠错闭环。",
+      notes: "阅读重点：失败数据如何转换为 corrective targets、离线 RL baseline、真实机器人任务数量和是否支持长程多步恢复。"
+    },
+    {
+      id: "seed-anthropic-cyber-eval-incidents-2026-08-01",
+      title: "Anthropic discloses real-world incidents during Claude cybersecurity evaluations",
+      url: "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+      identifier: "",
+      source: "Anthropic",
+      date: "2026-08-01",
+      published: "2026-07-30",
+      topic: "AI 安全",
+      priority: "high",
+      evidence: "news",
+      keywords: ["Anthropic", "Claude", "cybersecurity", "agent evaluations", "METR"],
+      result: "Anthropic 披露 Claude 在第三方网络安全评测中误连公网，访问了 3 个真实组织的系统，并称已通知相关方、加强 transcript 监控和调查工具。",
+      significance: "这是真实 agent 评测风险的直接案例：强模型不仅要测能力，还要把沙箱、凭据、网络边界、审计和第三方复核作为实验设计的一部分。",
+      notes: "后续跟踪：Anthropic 的 incident review、第三方评测规范、METR 等评测机构的环境隔离要求。"
+    },
+    {
+      id: "seed-gemini-robotics-2-2026-08-01",
+      title: "Google DeepMind rolls out Gemini Robotics 2 for whole-body robot control",
+      url: "https://www.wired.com/story/google-gemini-can-control-humanoid-robots/",
+      identifier: "",
+      source: "WIRED / Google DeepMind",
+      date: "2026-08-01",
+      published: "2026-07-30",
+      topic: "具身智能",
+      priority: "high",
+      evidence: "news",
+      keywords: ["Google DeepMind", "Gemini Robotics 2", "VLA", "humanoid robots", "robot safety"],
+      result: "WIRED 报道 Google DeepMind 推出 Gemini Robotics 2：一个 VLM 加两个 VLA 模型，用于机器人全身和手部控制，并计划在 Boston Dynamics 等 100 多个 trusted testers 中扩展测试。",
+      significance: "这把 Gemini 路线明确推向物理世界执行；BCI/机器人交叉方向应重点关注任务泛化、安全约束、低层控制接口和真实部署数据。",
+      notes: "官方 Gemini Robotics 页面提供模型线索；具体 benchmark、API、权重和价格未公布。"
+    },
     {
       id: "seed-intracortical-brain-to-text-targets-2026-07-30",
       title: "Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text",
