@@ -302,26 +302,26 @@ const aiPulseGroups = [
     hint: "模型、Agent、额度、API",
     items: [
       {
-        id: "pulse-anthropic-cyber-eval-incidents-2026-08-01",
-        title: "Claude cyber evals",
-        source: "Anthropic",
-        date: "2026-07-30",
-        url: "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
-        confidence: "官方",
-        keywords: ["Anthropic", "Claude", "cyber evaluations", "agent safety"],
-        result: "Anthropic 披露 Claude 在第三方网络安全评测环境中误连公网并访问了 3 个真实组织的系统。",
-        significance: "Agent 评测环境本身需要按生产系统级别做隔离、监控和权限控制。"
+        id: "pulse-deepseek-v4-flash-price-war-2026-08-02",
+        title: "DeepSeek V4 Flash",
+        source: "Axios",
+        date: "2026-08-01",
+        url: "https://www.axios.com/2026/08/01/deepseek-model-cheap-ai-price-war",
+        confidence: "可靠媒体",
+        keywords: ["DeepSeek", "V4 Flash", "coding model", "price war"],
+        result: "Axios 报道 DeepSeek 发布低价代码模型 V4 Flash，并称同等输出成本约为 Opus 4.8 的 1% 左右。",
+        significance: "代码模型竞争继续从单纯能力榜转向单位成本、路由和真实工程吞吐。"
       },
       {
-        id: "pulse-gemini-robotics-2-2026-08-01",
-        title: "Gemini Robotics 2",
-        source: "WIRED / Google DeepMind",
-        date: "2026-07-30",
-        url: "https://www.wired.com/story/google-gemini-can-control-humanoid-robots/",
+        id: "pulse-openai-luna-price-cut-2026-08-02",
+        title: "GPT-5.6 Luna cut",
+        source: "Axios",
+        date: "2026-08-01",
+        url: "https://www.axios.com/2026/08/01/deepseek-model-cheap-ai-price-war",
         confidence: "可靠媒体",
-        keywords: ["Google DeepMind", "Gemini Robotics 2", "VLA", "physical AI"],
-        result: "WIRED 报道 Google DeepMind 发布 Gemini Robotics 2，把 VLM 与两个 VLA 模型组合用于机器人全身与手部控制。",
-        significance: "前沿模型路线正在从屏幕内推理扩展到真实物理执行和安全评测。"
+        keywords: ["OpenAI", "GPT-5.6 Luna", "pricing", "inference cost"],
+        result: "Axios 称 OpenAI 在 GPT-5.6 Luna 发布三周后将价格下调 80%。",
+        significance: "高频 API 工作负载要重新评估模型路由和成本曲线，而不是沿用旧价目表。"
       }
     ]
   },
@@ -330,26 +330,26 @@ const aiPulseGroups = [
     hint: "头部人物/团队在说什么",
     items: [
       {
-        id: "pulse-parada-physical-agi-2026-08-01",
-        title: "Physical AGI",
-        source: "WIRED",
-        date: "2026-07-30",
-        url: "https://www.wired.com/story/google-gemini-can-control-humanoid-robots/",
+        id: "pulse-us-ai-policy-split-2026-08-02",
+        title: "US AI split",
+        source: "The Guardian",
+        date: "2026-08-01",
+        url: "https://www.theguardian.com/technology/2026/aug/01/china-silicon-valley-white-house",
         confidence: "可靠媒体",
-        keywords: ["Carolina Parada", "Google DeepMind", "physical AGI", "robot safety"],
-        result: "Google DeepMind 机器人负责人 Carolina Parada 将 Gemini Robotics 2 描述为通向 physical AGI 的里程碑。",
-        significance: "头部实验室正在把模型路线、机器人平台和安全 benchmark 绑定成同一叙事。"
+        keywords: ["OpenAI", "Anthropic", "Meta", "China AI", "open models"],
+        result: "The Guardian 报道美国政府和科技公司在是否限制中国开源/开权重模型上出现分歧。",
+        significance: "头部公司公开立场会影响开源模型、出口管制和企业采购的政策预期。"
       },
       {
-        id: "pulse-chinese-ai-researchers-x-2026-08-01",
-        title: "Chinese AI voices",
-        source: "WIRED",
-        date: "2026-07-31",
-        url: "https://www.wired.com/story/chinese-ai-researchers-are-finding-their-voice-on-x/",
+        id: "pulse-us-firms-open-model-lobby-2026-08-02",
+        title: "Open model lobbying",
+        source: "The Guardian",
+        date: "2026-08-01",
+        url: "https://www.theguardian.com/technology/2026/aug/01/china-silicon-valley-white-house",
         confidence: "可靠媒体",
-        keywords: ["Moonshot AI", "DeepSeek", "China AI", "research communication"],
-        result: "WIRED 报道 Moonshot、DeepSeek 等中国 AI 研究者更多使用 X 解释研究、招募人才和参与全球讨论。",
-        significance: "跟踪中国模型不能只看官方发布，也要识别哪些个人账号有可核验的一手技术信息。"
+        keywords: ["NVIDIA", "Microsoft", "Meta", "Palantir", "AI policy"],
+        result: "The Guardian 称 Nvidia、Microsoft、Palantir、Meta 等公司反对扩大对中国开源模型的限制。",
+        significance: "产业联盟的游说方向显示开发者生态和地缘安全之间的张力正在加剧。"
       }
     ]
   },
@@ -358,37 +358,26 @@ const aiPulseGroups = [
     hint: "具身智能、人形、真机部署",
     items: [
       {
-        id: "pulse-ace-data-0-2026-08-01",
-        title: "ACE-Data-0",
+        id: "pulse-tacwam-2026-08-02",
+        title: "TacWAM",
         source: "arXiv",
         date: "2026-07-30",
-        url: "https://arxiv.org/abs/2607.28625",
+        url: "https://arxiv.org/abs/2607.28391",
         confidence: "论文",
-        keywords: ["embodied data", "human demonstrations", "tactile sensing", "VLA"],
-        result: "ACE-Data-0 发布 150 小时、17M 帧、75,000 段家庭交互 episodes 的多模态人类示范数据。",
-        significance: "具身智能的数据竞争正在走向第一视角、多视角、动作、物体轨迹、声音和触觉同步采集。"
+        keywords: ["tactile prediction", "world action model", "contact-rich manipulation", "robot learning"],
+        result: "TacWAM 用触觉未来监督训练 world action model，在 4 个真实接触操作任务上平均成功率达到 75.0%。",
+        significance: "触觉、力和形变正在成为机器人 foundation policy 不能忽略的训练信号。"
       },
       {
-        id: "pulse-redflow-2026-08-01",
-        title: "RedFlow",
+        id: "pulse-pac-man-humanoid-safety-2026-08-02",
+        title: "Humanoid safety",
         source: "arXiv",
         date: "2026-07-30",
-        url: "https://arxiv.org/abs/2607.27782",
+        url: "https://arxiv.org/abs/2607.28623",
         confidence: "论文",
-        keywords: ["VLA", "offline RL", "flow matching", "failure recovery"],
-        result: "RedFlow 把失败 rollout 转成动作级纠错监督，真实操作任务成功率从 56.7% 提到 74.7%。",
-        significance: "机器人策略更新需要显式学习失败恢复，而不是只收集成功示范。"
-      },
-      {
-        id: "pulse-fcc-robot-vacuums-2026-08-01",
-        title: "FCC robot vacuums",
-        source: "WIRED / FCC",
-        date: "2026-07-30",
-        url: "https://www.wired.com/story/the-fcc-is-coming-for-robot-vacuums/",
-        confidence: "可靠媒体",
-        keywords: ["FCC", "robot vacuums", "advanced mobile robots", "equipment authorization"],
-        result: "WIRED 解释 FCC 新增 foreign-produced advanced robotic devices 后，联网扫地机、泳池清洁机和割草机的新型号可能难获美国认证。",
-        significance: "消费机器人也会被纳入移动机器人、传感器和联网能力的安全监管框架。"
+        keywords: ["humanoid robot", "Unitree G1", "CBF-RL", "whole-body safety"],
+        result: "PAC-MAN 在 Unitree G1 上零样本部署轻量 Link-CBF 策略，真实投掷躲避成功率为 95%。",
+        significance: "人形机器人安全控制正在从仿真指标走向带 onboard sensing 的真实闭环压力测试。"
       }
     ]
   },
@@ -397,37 +386,26 @@ const aiPulseGroups = [
     hint: "临床、植入、神经科技",
     items: [
       {
-        id: "pulse-eeg-editbench-2026-08-01",
-        title: "EEG-EditBench",
+        id: "pulse-cortical-organoid-dynamics-2026-08-02",
+        title: "Organoid dynamics",
         source: "arXiv",
         date: "2026-07-30",
-        url: "https://arxiv.org/abs/2607.27857",
+        url: "https://arxiv.org/abs/2607.28068",
         confidence: "论文",
-        keywords: ["EEG", "visual decoding", "benchmark", "THINGS-EEG2"],
-        result: "EEG-EditBench 用 2,137 个受控图像编辑测试 8 个 EEG-to-image retrieval 模型保留了哪些视觉信息。",
-        significance: "BCI 视觉解码评测要从粗粒度检索走向对象、属性和背景的可诊断误差。"
+        keywords: ["cortical organoids", "HD-MEA", "graph neural network", "stimulus response"],
+        result: "一项皮层类器官研究发现刺激诱发反应更像近同步网络爆发，而不是可测的外向传播。",
+        significance: "神经 AI 分析要先验证采样率、刺激时序和可观测传播假设，负结果同样有方法学价值。"
       },
       {
-        id: "pulse-eeg-speech-transfer-2026-08-01",
-        title: "EEG speech transfer",
+        id: "pulse-eeg-arousal-dns-2026-08-02",
+        title: "EEG arousal",
         source: "arXiv",
-        date: "2026-07-29",
-        url: "https://arxiv.org/abs/2607.27268",
+        date: "2026-07-30",
+        url: "https://arxiv.org/abs/2607.28204",
         confidence: "论文",
-        keywords: ["EEG", "imagined speech", "foundation models", "speech BCI"],
-        result: "一项 speech BCI benchmark 发现 LaBraM、EEGMamba 在 overt/covert/imagined speech 上未稳定超过 16K 参数 CNN。",
-        significance: "通用 EEG foundation model 迁移到语音解码仍不可靠，可能需要 speech-specific pretraining。"
-      },
-      {
-        id: "pulse-zuna-1-1-arxiv-2026-08-01",
-        title: "ZUNA1.1 paper",
-        source: "arXiv",
-        date: "2026-07-29",
-        url: "https://arxiv.org/abs/2607.27308",
-        confidence: "论文",
-        keywords: ["EEG", "foundation model", "denoising", "super-resolution"],
-        result: "ZUNA1.1 论文版描述 380M EEG diffusion autoencoder，可重建最长 30 秒、任意通道布局和局部坏段。",
-        significance: "非侵入式 BCI 工具链正在出现可本地部署的 EEG 清洗与补全 foundation model。"
+        keywords: ["EEG", "dynamic neural synchrony", "emotion arousal", "annotation efficiency"],
+        result: "一项 EEG 研究用 142 名被试、207 小时数据评估 group-level dynamic neural synchrony 与连续情绪唤醒的关系。",
+        significance: "非侵入式神经解码可借鉴群体同步指标来降低连续标注成本。"
       }
     ]
   },
@@ -436,37 +414,37 @@ const aiPulseGroups = [
     hint: "中文产业、政策、就业",
     items: [
       {
-        id: "pulse-fcc-covered-list-2026-08-01",
-        title: "FCC Covered List",
-        source: "FCC",
-        date: "2026-07-28",
-        url: "https://docs.fcc.gov/public/attachments/DA-26-786A1.pdf",
-        confidence: "官方",
-        keywords: ["FCC", "Covered List", "advanced robotic devices", "policy"],
-        result: "FCC 公告把 foreign-produced power inverters 和 advanced robotic devices 加入 Covered List。",
-        significance: "AI 硬件与机器人出海会同时面对网络安全、供应链和设备认证风险。"
-      },
-      {
-        id: "pulse-china-ai-x-discourse-2026-08-01",
-        title: "China AI discourse",
-        source: "WIRED",
-        date: "2026-07-31",
-        url: "https://www.wired.com/story/chinese-ai-researchers-are-finding-their-voice-on-x/",
+        id: "pulse-china-tech-policy-shock-2026-08-02",
+        title: "China tech shock",
+        source: "The Guardian",
+        date: "2026-08-01",
+        url: "https://www.theguardian.com/technology/2026/aug/01/china-silicon-valley-white-house",
         confidence: "可靠媒体",
-        keywords: ["China AI", "Moonshot AI", "DeepSeek", "research community"],
-        result: "WIRED 称中国 AI 研究者在 X 上的技术发声增加，并以 Moonshot 相关账号最活跃。",
-        significance: "中文 AI 产业信息正在出现跨平台传播层，核验时仍要回到论文、仓库和官方公告。"
+        keywords: ["China AI", "Kimi K3", "AI chips", "robotics", "US policy"],
+        result: "The Guardian 将中国开源模型、AI 芯片和机器人进展放在同一条美国政策压力线上报道。",
+        significance: "中国 AI 产业信号需要同时看模型、算力、机器人和政策反应。"
       },
       {
-        id: "pulse-anthropic-eval-governance-2026-08-01",
-        title: "Eval governance",
-        source: "Anthropic",
-        date: "2026-07-30",
-        url: "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
-        confidence: "官方",
-        keywords: ["AI governance", "third-party evals", "cybersecurity", "METR"],
-        result: "Anthropic 称将扩大评测 transcript 监控、改进调查工具，并与 METR 讨论第三方复核。",
-        significance: "强 agent 的安全治理会越来越依赖可审计评测环境，而不只是模型卡声明。"
+        id: "pulse-fcc-robot-policy-fallout-2026-08-02",
+        title: "Robot policy fallout",
+        source: "The Guardian",
+        date: "2026-08-01",
+        url: "https://www.theguardian.com/technology/2026/aug/01/china-silicon-valley-white-house",
+        confidence: "可靠媒体",
+        keywords: ["FCC", "Chinese robots", "humanoid robots", "supply chain"],
+        result: "The Guardian 将 FCC 对中国机器人相关限制列为中美技术紧张升级的一部分。",
+        significance: "人形机器人出海会受到通信认证、国家安全和供应链叙事共同影响。"
+      },
+      {
+        id: "pulse-ai-price-commodity-2026-08-02",
+        title: "AI commodity pricing",
+        source: "Axios",
+        date: "2026-08-01",
+        url: "https://www.axios.com/2026/08/01/deepseek-model-cheap-ai-price-war",
+        confidence: "可靠媒体",
+        keywords: ["AI pricing", "DeepSeek", "OpenAI", "Chinese models"],
+        result: "Axios 将 DeepSeek、Kimi K3、OpenAI Luna 和 Gemini Flash 放进同一轮 AI 价格战框架。",
+        significance: "低价模型会改变研究原型、创业产品和企业采购对闭源前沿模型的依赖。"
       }
     ]
   }
@@ -1498,6 +1476,86 @@ function seedArticles() {
 
 function starterArticles() {
   return [
+    {
+      id: "seed-tacwam-2026-08-02",
+      title: "TacWAM: Tactile World Action Model for Contact-rich Robotic Manipulation",
+      url: "https://arxiv.org/abs/2607.28391",
+      identifier: "arXiv:2607.28391",
+      source: "arXiv",
+      date: "2026-08-02",
+      published: "2026-07-30",
+      topic: "机器人",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["tactile prediction", "world action model", "contact-rich manipulation", "robot learning", "VLA"],
+      result: "TacWAM 用触觉未来预测作为监督信号训练 world action model，在接触丰富的真实操作任务上报告平均 75.0% 成功率，高于 OpenVLA-oft、Octo、GR-2 等基线。",
+      significance: "这类工作把触觉从附加传感器推到策略学习核心位置；对 BCI+机器人方向，触觉预测和闭环反馈可能比单纯视觉动作映射更接近可用系统。",
+      notes: "阅读重点：触觉表示、prediction objective、4 个真实任务的失败类型、与视觉语言动作模型基线的公平性。"
+    },
+    {
+      id: "seed-pac-man-humanoid-safety-2026-08-02",
+      title: "PAC-MAN: Safe Humanoid Whole-Body Control via Perturbation-Aware Constrained Multi-Agent Reinforcement Learning",
+      url: "https://arxiv.org/abs/2607.28623",
+      identifier: "arXiv:2607.28623",
+      source: "arXiv",
+      date: "2026-08-02",
+      published: "2026-07-30",
+      topic: "机器人",
+      priority: "high",
+      evidence: "paper",
+      keywords: ["humanoid robot", "Unitree G1", "CBF-RL", "safety", "whole-body control"],
+      result: "PAC-MAN 把 Link-CBF 安全约束与多智能体强化学习结合，在 Unitree G1 上零样本部署，并报告真实投掷躲避测试 95% 成功率、在线计算延迟低于 1 ms。",
+      significance: "人形机器人安全控制正在从仿真避障走向真实闭环扰动测试；如果未来用 BCI 指令控制移动机器人，低延迟安全层会是必要接口。",
+      notes: "阅读重点：Link-CBF 近似方式、sim-to-real 设置、真实安全测试强度、是否能扩展到人机共处场景。"
+    },
+    {
+      id: "seed-cortical-organoid-dynamics-2026-08-02",
+      title: "Disentangling Signal Propagation Dynamics in Cortical Organoids with HD-MEA Data and Graph-Computational Modelling",
+      url: "https://arxiv.org/abs/2607.28068",
+      identifier: "arXiv:2607.28068",
+      source: "arXiv",
+      date: "2026-08-02",
+      published: "2026-07-30",
+      topic: "神经科学",
+      priority: "medium",
+      evidence: "paper",
+      keywords: ["cortical organoids", "HD-MEA", "graph neural network", "stimulus response", "neural dynamics"],
+      result: "论文用 HD-MEA 与图计算模型分析皮层类器官刺激反应，发现可观测反应更接近近同步网络爆发，而不是从刺激点向外传播的波。",
+      significance: "这是一个有价值的负结果：神经 AI/类器官计算不能先验假设信号传播存在，实验采样率、刺激伪迹和统计检验会直接决定解释边界。",
+      notes: "阅读重点：HD-MEA 采样设计、刺激后 1-15 ms 窗口、GNN 如何建模空间邻接、负结果对类器官智能叙事的约束。"
+    },
+    {
+      id: "seed-deepseek-v4-flash-price-war-2026-08-02",
+      title: "DeepSeek V4 Flash intensifies low-cost coding-model competition",
+      url: "https://www.axios.com/2026/08/01/deepseek-model-cheap-ai-price-war",
+      identifier: "",
+      source: "Axios",
+      date: "2026-08-02",
+      published: "2026-08-01",
+      topic: "AI 模型",
+      priority: "high",
+      evidence: "news",
+      keywords: ["DeepSeek", "V4 Flash", "coding model", "AI pricing", "OpenAI"],
+      result: "Axios 报道 DeepSeek 发布 V4 Flash 代码模型，并称同等输出成本约 28 美分，而 Anthropic Opus 4.8 约 25 美元；报道还提到 OpenAI 已将 GPT-5.6 Luna 价格下调 80%。",
+      significance: "如果报道数字成立，代码模型的竞争重点会快速转向价格、延迟和可组合工具链；研究与开发者应重新评估默认模型、路由策略和预算上限。",
+      notes: "后续跟踪 DeepSeek 官方文档、API 价目表、基准复现实测，以及是否有开权重或企业部署版本。"
+    },
+    {
+      id: "seed-china-ai-policy-shock-guardian-2026-08-02",
+      title: "China AI, chip and robotics gains fuel US policy debate",
+      url: "https://www.theguardian.com/technology/2026/aug/01/china-silicon-valley-white-house",
+      identifier: "",
+      source: "The Guardian",
+      date: "2026-08-02",
+      published: "2026-08-01",
+      topic: "AI 政策",
+      priority: "medium",
+      evidence: "news",
+      keywords: ["China AI", "open models", "AI chips", "robotics", "US policy"],
+      result: "The Guardian 报道中国在开源模型、AI 芯片和机器人上的进展正在冲击硅谷和白宫，并指出 OpenAI/Anthropic 与 Nvidia、Microsoft、Meta、Palantir 等公司在限制中国开源模型问题上立场分化。",
+      significance: "中国 AI 竞争不再只是模型榜单问题，而是模型开放、算力供应链、机器人硬件和监管叙事的组合；对研究就业也意味着跨政策与产业链的判断会更重要。",
+      notes: "后续跟踪美国行政命令、FCC 机器人设备清单、Kimi/DeepSeek 官方发布和国产芯片的可验证量产数据。"
+    },
     {
       id: "seed-ace-data-0-2026-08-01",
       title: "ACE-Data-0: The All-in-One Connected Embodiment Dataset for Robot Learning",
